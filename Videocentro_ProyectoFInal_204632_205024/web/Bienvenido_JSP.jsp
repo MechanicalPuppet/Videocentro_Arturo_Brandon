@@ -8,8 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="estilos/estilosIndex.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>VIDEOCENTRO ARTURO Y BRANDON</title>
     </head>
     <body>
         <%
@@ -18,6 +19,16 @@
             }
         %>
         
-        <h1>WENAS WENAS </h1>
+        <nav>
+            <ul>
+                
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="videojuegos.html">Videojuegos</a></li>
+                <li><a href="rentas.html">Rentas</a></li>
+                <li><a href="inventario.html">Inventario</a></li>
+                
+            </ul>
+            
+        </nav>
     </body>
 </html>
