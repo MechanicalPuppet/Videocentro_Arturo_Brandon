@@ -44,9 +44,9 @@ public class agregaVideojuego extends HttpServlet {
             String clasificacion = request.getParameter("clasificacion");
             String consola = request.getParameter("consola");
             String fabricante = request.getParameter("fabricante");
-            String version = request.getParameter("version");
+            Integer version = Integer.parseInt(request.getParameter("version"));
             
-            Videojuego juegoNuevo = new Videojuego(titulo, titulo, genero, clasificacion, consola, fabricante, 0);
+            Videojuego juegoNuevo = new Videojuego(numCatalogo, titulo, genero, clasificacion, consola, fabricante, version);
             
             try{
                 crud.agregar(juegoNuevo);
