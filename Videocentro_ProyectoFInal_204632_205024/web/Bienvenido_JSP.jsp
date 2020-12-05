@@ -18,6 +18,7 @@
             response.sendRedirect("Login_JSP.jsp");
             }
         %>
+        <function>
         
         <nav>
             <ul>

@@ -13,6 +13,8 @@
     </head>
     <body>
         <h1>Login</h1>
+
+            
         
         <form action="Login_Servlet">
             Ingresa usuario: <input type="text" name="usuario"><br/>

@@ -8,11 +8,13 @@ package Servlets;
 import interfaces.IPersistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objetosNegocio.Cliente;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
@@ -20,8 +22,8 @@ import persistencia.PersistenciaBD;
  *
  * @author Jbran
  */
-@WebServlet(name = "agregaVideojuego", urlPatterns = {"/agregaVideojuego"})
-public class agregaVideojuego extends HttpServlet {
+@WebServlet(name = "consultarVideojuegos", urlPatterns = {"/consultarVideojuegos"})
+public class consultarVideojuegos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,29 +38,40 @@ public class agregaVideojuego extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+            
             IPersistencia crud = new PersistenciaBD();
-           
-            String numCatalogo = request.getParameter("numCatalogo");
-            String titulo = request.getParameter("titulo");
-            String genero = request.getParameter("genero");
-            String clasificacion = request.getParameter("clasificacion");
-            String consola = request.getParameter("consola");
-            String fabricante = request.getParameter("fabricante");
-            Integer version = Integer.parseInt(request.getParameter("version"));
+    
+        List lista = crud.consultarVideojuegos();
+        
+        Videojuego v;
+        
+        out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet miServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("</body>");
+            out.println("<table border=1>");
             
-            Videojuego juegoNuevo = new Videojuego(numCatalogo, titulo, genero, clasificacion, consola, fabricante, version);
+            for (int i = 0; i < lista.size(); i++) {
+            v=(Videojuego)lista.get(i);
+            out.println("<tr>"
+                    + "<td>" + v.getNumCatalogo()+ "</td>"
+                    + "<td>" + v.getTitulo() + "</td>"
+                    + "<td>" + v.getGenero() + "</td>"
+                    + "<td>" + v.getConsola() + "</td>"
+                    + "<td>"+ v.getFabricante() + "</td>"
+                    + "<td>"+ v.getVersion() + "</td>"+"</tr>");
+        }
+            out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
+            out.println("</html>");
+        } 
             
-            try{
-                crud.agregar(juegoNuevo);
-            } catch(Exception e){
-                response.sendRedirect("error.html");
-                System.out.println("No se pudo agregar el videojuego.");
-            }
             
             
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

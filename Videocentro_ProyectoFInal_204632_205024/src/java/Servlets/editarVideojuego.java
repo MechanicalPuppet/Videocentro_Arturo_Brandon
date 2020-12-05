@@ -20,8 +20,8 @@ import persistencia.PersistenciaBD;
  *
  * @author Jbran
  */
-@WebServlet(name = "agregaVideojuego", urlPatterns = {"/agregaVideojuego"})
-public class agregaVideojuego extends HttpServlet {
+@WebServlet(name = "editarVideojuego", urlPatterns = {"/editarVideojuego"})
+public class editarVideojuego extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,27 +36,30 @@ public class agregaVideojuego extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+            /* TODO output your page here. You may use following sample code. */
+            
             IPersistencia crud = new PersistenciaBD();
-           
-            String numCatalogo = request.getParameter("numCatalogo");
-            String titulo = request.getParameter("titulo");
-            String genero = request.getParameter("genero");
-            String clasificacion = request.getParameter("clasificacion");
-            String consola = request.getParameter("consola");
-            String fabricante = request.getParameter("fabricante");
-            Integer version = Integer.parseInt(request.getParameter("version"));
             
-            Videojuego juegoNuevo = new Videojuego(numCatalogo, titulo, genero, clasificacion, consola, fabricante, version);
+            Videojuego videojuego = new Videojuego(request.getParameter("numCatalogo"),
+                    request.getParameter("titulo"),
+                    request.getParameter("genero"),
+                    request.getParameter("clasificacion"),
+                    request.getParameter("consola"),
+                    request.getParameter("fabricante"),
+                    Integer.parseInt(request.getParameter("version")));
             
-            try{
-                crud.agregar(juegoNuevo);
-            } catch(Exception e){
-                response.sendRedirect("error.html");
-                System.out.println("No se pudo agregar el videojuego.");
-            }
+            crud.actualizar(videojuego);
             
-            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet editarVideojuego</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1> ¡¡Videojuego actualizado!! </h1>");
+            out.println("<button onclick='Bienvenido.jsp'> Regresar </button>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

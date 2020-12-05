@@ -36,15 +36,15 @@ public class control extends HttpServlet {
          if(tareaSeleccionada.equals("agregarVideojuego")){
             response.sendRedirect("capturaVideojuego.html");
         } else if (tareaSeleccionada.equals("editarVideojuego")){
-            response.sendRedirect("editaVideojuego.html");
+            response.sendRedirect("capturaClaveVideojuegoActualizar.jsp");
             
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
+        } else if (tareaSeleccionada.equals("eliminarVideojuego")){
+            response.sendRedirect("capturaClaveVideojuegoEliminar.jsp");
+        } else if (tareaSeleccionada.equals("consultarVideojuegos")){
+            response.sendRedirect(tareaSeleccionada);
+        } else if (tareaSeleccionada.equals("consultarVideojuegosTitulo")){
             
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
-            
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
-            
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
+        } else if (tareaSeleccionada.equals("consultarVideojuegosGenero")){
             
         } else if (tareaSeleccionada.equals("editarVideojuego")){
             

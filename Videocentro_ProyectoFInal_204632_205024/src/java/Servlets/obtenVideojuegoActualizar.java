@@ -8,6 +8,8 @@ package Servlets;
 import interfaces.IPersistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +22,8 @@ import persistencia.PersistenciaBD;
  *
  * @author Jbran
  */
-@WebServlet(name = "agregaVideojuego", urlPatterns = {"/agregaVideojuego"})
-public class agregaVideojuego extends HttpServlet {
+@WebServlet(name = "obtenVideojuegoActualizar", urlPatterns = {"/obtenVideojuegoActualizar"})
+public class obtenVideojuegoActualizar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,25 +38,48 @@ public class agregaVideojuego extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+            /* TODO output your page here. You may use following sample code. */
+            
             IPersistencia crud = new PersistenciaBD();
-           
-            String numCatalogo = request.getParameter("numCatalogo");
-            String titulo = request.getParameter("titulo");
-            String genero = request.getParameter("genero");
-            String clasificacion = request.getParameter("clasificacion");
-            String consola = request.getParameter("consola");
-            String fabricante = request.getParameter("fabricante");
-            Integer version = Integer.parseInt(request.getParameter("version"));
             
-            Videojuego juegoNuevo = new Videojuego(numCatalogo, titulo, genero, clasificacion, consola, fabricante, version);
+            List<Videojuego> lista = crud.consultarVideojuegos();
+            Videojuego videojuego = new Videojuego(request.getParameter("numCatalogo"));
             
-            try{
-                crud.agregar(juegoNuevo);
-            } catch(Exception e){
-                response.sendRedirect("error.html");
-                System.out.println("No se pudo agregar el videojuego.");
+            
+     
+            
+            
+            for (Videojuego juego : lista) {
+             
+                if(juego.getNumCatalogo().equalsIgnoreCase(videojuego.getNumCatalogo())){
+                   request.getSession().setAttribute("juego", juego);
+                   request.getSession().setAttribute("numCatalogo", juego.getNumCatalogo());
+                   request.getSession().setAttribute("clasificacion", juego.getClasificacion());
+                   request.setAttribute("consola", juego.getConsola());
+                   request.setAttribute("titulo",juego.getTitulo());
+                   request.setAttribute("fabricante", juego.getFabricante());
+                   request.setAttribute("genero",juego.getGenero());
+                   request.setAttribute("version", juego.getVersion());
+                
+                   response.sendRedirect("capturaEditarVideojuego.jsp");
+                break;
+//                   RequestDispatcher rd = request.getRequestDispatcher("capturaEditarVideojuegoActualizar.jsp");
+//                   rd.forward(request, response);
+            
+                }
+                
             }
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Lo lamento</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1> El videojuego que has introducido no existe :( </h1>");
+            out.println("<button onclick='Bienvenido.jsp'> Regresar </button>");
+            out.println("</body>");
+            out.println("</html>");
             
             
         }
