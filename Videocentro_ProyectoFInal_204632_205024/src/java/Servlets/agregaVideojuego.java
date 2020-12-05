@@ -50,6 +50,7 @@ public class agregaVideojuego extends HttpServlet {
             
             try{
                 crud.agregar(juegoNuevo);
+                response.sendRedirect("videojuegos.html");
             } catch(Exception e){
                 response.sendRedirect("error.html");
                 System.out.println("No se pudo agregar el videojuego.");

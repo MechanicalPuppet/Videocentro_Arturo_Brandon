@@ -46,16 +46,14 @@ public class control extends HttpServlet {
             
         } else if (tareaSeleccionada.equals("editarVideojuego")){
             
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
-            
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
-            
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
-            
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
-            
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
-            
+        } else if (tareaSeleccionada.equals("agregarCliente")){
+            response.sendRedirect("capturaCliente.html");
+        } else if (tareaSeleccionada.equals("editarCliente")){
+            response.sendRedirect("editaCliente.html");
+        } else if (tareaSeleccionada.equals("eliminarCliente")){
+            response.sendRedirect("eliminaCliente.html");
+        } else if (tareaSeleccionada.equals("consultarCliente")){
+            response.sendRedirect("consultaCliente.html");
         }
          
          
