@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>CLIENTES</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <div>CLIENTES</div>
+        
+         <nav>
+            <ul>
+                
+                <li><a href="control?tarea=agregarCliente">Agregar cliente</a></li>
+                <li><a href="control?tarea=editarCliente">Editar cliente</a></li>
+                <li><a href="control?tarea=eliminarCliente">Eliminar cliente</a></li>
+                <li><a href="control?tarea=consultarCliente">Consultar cliente</a></li>
+                
+            </ul>
+            
+        </nav>
+        
+        <article>
+            <h1> ¡AGREGAR CLIENTE!</h1>
+            <form action="agregaCliente">
+                <ul>
+                    <li><input type="number" name="numCredencial" placeholder="Número de credencial"/> </li>
+                    <li><input type="text" name="nombre" placeholder="Nombre"/> </li>
+                    <li><input type="text" name="direccion" placeholder="Dirección"/> </li>
+                    <li><input type="text" name="telefono" placeholder="Teléfono"/> </li>
+                    <li><input type="submit" value="Agregar cliente"/> </li>
+                </ul>
+                </form>
+            
+        </article>
+    </body>
+</html>
