@@ -55,14 +55,14 @@ public class obtenVideojuegoActualizar extends HttpServlet {
                    request.getSession().setAttribute("juego", juego);
                    request.getSession().setAttribute("numCatalogo", juego.getNumCatalogo());
                    request.getSession().setAttribute("clasificacion", juego.getClasificacion());
-                   request.setAttribute("consola", juego.getConsola());
-                   request.setAttribute("titulo",juego.getTitulo());
-                   request.setAttribute("fabricante", juego.getFabricante());
-                   request.setAttribute("genero",juego.getGenero());
-                   request.setAttribute("version", juego.getVersion());
+                   request.getSession().setAttribute("consola", juego.getConsola());
+                   request.getSession().setAttribute("titulo",juego.getTitulo());
+                   request.getSession().setAttribute("fabricante", juego.getFabricante());
+                   request.getSession().setAttribute("genero",juego.getGenero());
+                  request.getSession().setAttribute("version", juego.getVersion());
                 
                    response.sendRedirect("capturaEditarVideojuego.jsp");
-                break;
+                
 //                   RequestDispatcher rd = request.getRequestDispatcher("capturaEditarVideojuegoActualizar.jsp");
 //                   rd.forward(request, response);
             

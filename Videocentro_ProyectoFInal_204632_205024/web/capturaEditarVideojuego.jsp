@@ -30,13 +30,13 @@
             <form action="editarVideojuego">
                 <ul>
                     <!-- USO REQUEST O SESSION AQUÍ? POR QUÉ SIEMPPRE ES NULL?-->
-                    <li><input type="number" name="numCatalogo" value="<%request.getAttribute("numCatalogo"); %>"/></li>
-                    <li><input type="text" name="titulo" value=<% request.getAttribute("titulo"); %>/> </li>
-                    <li><input type="text" name="genero" value=<%request.getAttribute("genero"); %>/> </li>
-                    <li><input type="text" name="clasificacion" value=<%request.getAttribute("clasificacion"); %>/> </li>
-                    <li><input type="text" name="consola" value=<%request.getAttribute("consola"); %>/> </li>
-                    <li><input type="text" name="fabricante" value=<%request.getAttribute("fabricante").toString(); %>/> </li>
-                    <li><input type="number" name="version" value=<%request.getAttribute("version"); %>/> </li>
+                    <li><input type="number" name="numCatalogo" readonly="readonly" value="<%=session.getAttribute("numCatalogo")%>"/></li>
+                    <li><input type="text" name="titulo" value="<%= session.getAttribute("titulo") %>"/> </li>
+                    <li><input type="text" name="genero" value="<%=session.getAttribute("genero") %>"/> </li>
+                    <li><input type="text" name="clasificacion" value="<%=session.getAttribute("clasificacion") %>"/> </li>
+                    <li><input type="text" name="consola" value="<%=session.getAttribute("consola") %>"/> </li>
+                    <li><input type="text" name="fabricante" value="<%=session.getAttribute("fabricante") %>"/> </li>
+                    <li><input type="number" name="version" value="<%=session.getAttribute("version") %>"/> </li>
                     <li><input type="submit" value ="Editar videojuego" />
                 </ul>
                 </form>

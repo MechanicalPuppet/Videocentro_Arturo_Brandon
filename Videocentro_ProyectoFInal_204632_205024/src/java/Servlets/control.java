@@ -41,7 +41,7 @@ public class control extends HttpServlet {
         } else if (tareaSeleccionada.equals("eliminarVideojuego")){
             response.sendRedirect("capturaClaveVideojuegoEliminar.jsp");
         } else if (tareaSeleccionada.equals("consultarVideojuegos")){
-            response.sendRedirect(tareaSeleccionada);
+            response.sendRedirect("consultarVideojuegos");
         } else if (tareaSeleccionada.equals("consultarVideojuegosTitulo")){
             
         } else if (tareaSeleccionada.equals("consultarVideojuegosGenero")){
