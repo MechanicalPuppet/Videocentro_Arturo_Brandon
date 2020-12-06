@@ -46,6 +46,7 @@ public class control extends HttpServlet {
         } else if (tareaSeleccionada.equals("consultarVideojuegosGenero")){
             response.sendRedirect("capturaConsultarVideojuegoGenero.html");
             
+            
         } else if (tareaSeleccionada.equals("agregarCliente")){
             response.sendRedirect("capturaCliente.html");
         } else if (tareaSeleccionada.equals("editarCliente")){
@@ -54,6 +55,14 @@ public class control extends HttpServlet {
             response.sendRedirect("capturaCredencialClienteEliminar.jsp");
         } else if (tareaSeleccionada.equals("consultarCliente")){
             response.sendRedirect("consultarClientes");
+            
+            
+        } else if (tareaSeleccionada.equals("inventarear")) {
+            response.sendRedirect("capturaClaveVideojuegoInventarear.jsp");
+        } else if (tareaSeleccionada.equals("desinventarear")) {
+            response.sendRedirect("capturaClaveVideojuegoDesinventarear.jsp");
+        } else if (tareaSeleccionada.equals("consultarInventario")) {
+            response.sendRedirect("capturaClaveVideojuegoConsultarInventario.jsp");
         }
          
          
