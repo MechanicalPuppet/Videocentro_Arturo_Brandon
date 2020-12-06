@@ -57,7 +57,7 @@ public class editarVideojuego extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> ¡¡Videojuego actualizado!! </h1>");
-            out.println("<button onclick='Bienvenido.jsp'> Regresar </button>");
+            out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar</button></a>");
             out.println("</body>");
             out.println("</html>");
         }

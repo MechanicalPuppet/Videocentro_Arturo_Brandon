@@ -49,7 +49,7 @@ public class control extends HttpServlet {
         } else if (tareaSeleccionada.equals("agregarCliente")){
             response.sendRedirect("capturaCliente.html");
         } else if (tareaSeleccionada.equals("editarCliente")){
-            response.sendRedirect("editaCliente.html");
+            response.sendRedirect("capturaCredencialClienteActualizar.jsp");
         } else if (tareaSeleccionada.equals("eliminarCliente")){
             response.sendRedirect("eliminaCliente.html");
         } else if (tareaSeleccionada.equals("consultarCliente")){
