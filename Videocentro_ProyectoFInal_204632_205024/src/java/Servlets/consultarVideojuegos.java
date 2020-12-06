@@ -14,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
@@ -38,46 +37,40 @@ public class consultarVideojuegos extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             IPersistencia crud = new PersistenciaBD();
-    
-        List lista = crud.consultarVideojuegos();
-        
-        Videojuego v;
-        
-      
-        
-        out.println("<!DOCTYPE html>");
+
+            List lista = crud.consultarVideojuegos();
+
+            Videojuego v;
+
+            out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Consulta todos los videojuegos</title>");            
+            out.println("<title>Consulta todos los videojuegos</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("</body>");
             out.println("<table border=1>");
-            
+
             for (int i = 0; i < lista.size(); i++) {
-           
-            v=(Videojuego)lista.get(i);
-           
-            
-            out.println("<tr>"
-                    + "<td>" + v.getNumCatalogo()+ "</td>"
-                    + "<td>" + v.getTitulo() + "</td>"
-                    + "<td>" + v.getGenero() + "</td>"
-                    + "<td>" + v.getConsola() + "</td>"
-                    + "<td>"+ v.getFabricante() + "</td>"
-                    + "<td>"+ v.getVersion() + "</td>"+"</tr>");
-            
-        }
+
+                v = (Videojuego) lista.get(i);
+
+                out.println("<tr>"
+                        + "<td>" + v.getNumCatalogo() + "</td>"
+                        + "<td>" + v.getTitulo() + "</td>"
+                        + "<td>" + v.getGenero() + "</td>"
+                        + "<td>" + v.getConsola() + "</td>"
+                        + "<td>" + v.getFabricante() + "</td>"
+                        + "<td>" + v.getVersion() + "</td>" + "</tr>");
+
+            }
             out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
             out.println("</html>");
-        } 
-            
-            
-            
         }
-    
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

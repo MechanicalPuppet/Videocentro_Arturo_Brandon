@@ -6,7 +6,6 @@
 package Servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,9 +51,9 @@ public class control extends HttpServlet {
         } else if (tareaSeleccionada.equals("editarCliente")){
             response.sendRedirect("capturaCredencialClienteActualizar.jsp");
         } else if (tareaSeleccionada.equals("eliminarCliente")){
-            response.sendRedirect("eliminaCliente.html");
+            response.sendRedirect("capturaCredencialClienteEliminar.jsp");
         } else if (tareaSeleccionada.equals("consultarCliente")){
-            response.sendRedirect("consultaCliente.html");
+            response.sendRedirect("consultarClientes");
         }
          
          
