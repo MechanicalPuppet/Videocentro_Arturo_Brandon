@@ -43,8 +43,9 @@ public class control extends HttpServlet {
         } else if (tareaSeleccionada.equals("consultarVideojuegos")){
             response.sendRedirect("consultarVideojuegos");
         } else if (tareaSeleccionada.equals("consultarVideojuegosTitulo")){
-            
+            response.sendRedirect("capturaConsultarVideojuegoTitulo.html");
         } else if (tareaSeleccionada.equals("consultarVideojuegosGenero")){
+            response.sendRedirect("capturaConsultarVideojuegoGenero.html");
             
         } else if (tareaSeleccionada.equals("agregarCliente")){
             response.sendRedirect("capturaCliente.html");

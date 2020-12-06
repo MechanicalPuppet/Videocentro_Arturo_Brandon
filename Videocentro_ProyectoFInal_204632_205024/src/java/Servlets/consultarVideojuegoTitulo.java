@@ -14,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
@@ -22,8 +21,8 @@ import persistencia.PersistenciaBD;
  *
  * @author Jbran
  */
-@WebServlet(name = "consultarVideojuegos", urlPatterns = {"/consultarVideojuegos"})
-public class consultarVideojuegos extends HttpServlet {
+@WebServlet(name = "consultarVideojuegoTitulo", urlPatterns = {"/consultarVideojuegoTitulo"})
+public class consultarVideojuegoTitulo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,13 +38,11 @@ public class consultarVideojuegos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            IPersistencia crud = new PersistenciaBD();
+               IPersistencia crud = new PersistenciaBD();
     
         List lista = crud.consultarVideojuegos();
         
         Videojuego v;
-        
-      
         
         out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -56,10 +53,14 @@ public class consultarVideojuegos extends HttpServlet {
             out.println("</body>");
             out.println("<table border=1>");
             
+            
+            /* TODO output your page here. You may use following sample code. */
+
+            
             for (int i = 0; i < lista.size(); i++) {
            
             v=(Videojuego)lista.get(i);
-           
+           if(v.getTitulo().toLowerCase().contains(request.getParameter("titulo").toLowerCase())){
             
             out.println("<tr>"
                     + "<td>" + v.getNumCatalogo()+ "</td>"
@@ -68,16 +69,11 @@ public class consultarVideojuegos extends HttpServlet {
                     + "<td>" + v.getConsola() + "</td>"
                     + "<td>"+ v.getFabricante() + "</td>"
                     + "<td>"+ v.getVersion() + "</td>"+"</tr>");
+           }
             
         }
-            out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
-            out.println("</html>");
-        } 
-            
-            
-            
         }
-    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
