@@ -4,6 +4,7 @@
     Author     : Jbran
 --%>
 
+<%@page import="objetosNegocio.Videojuego"%>
 <%@page import="java.util.List"%>
 <%@page import="persistencia.PersistenciaBD"%>
 <%@page import="interfaces.IPersistencia"%>
@@ -38,7 +39,29 @@
                 </form>
          
     
+            <% 
+            IPersistencia crud = new PersistenciaBD();
+
+            List lista = crud.consultarVideojuegos();
+
+            Videojuego v;
             
+            for (int i = 0; i < lista.size(); i++) {
+
+                v = (Videojuego) lista.get(i);
+
+                out.println("<table border=1>");
+                out.println("<tr>"
+                        + "<td>" + v.getNumCatalogo() + "</td>"
+                        + "<td>" + v.getTitulo() + "</td>"
+                        + "<td>" + v.getGenero() + "</td>"
+                        + "<td>" + v.getConsola() + "</td>"
+                        + "<td>" + v.getFabricante() + "</td>"
+                        + "<td>" + v.getVersion() + "</td>" + "</tr>");
+
+            }
+            
+            %>
             
             <script>
              

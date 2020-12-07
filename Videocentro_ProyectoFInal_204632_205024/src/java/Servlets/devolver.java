@@ -14,15 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
 import persistencia.PersistenciaBD;
 
 /**
  *
  * @author Jbran
  */
-@WebServlet(name = "consultaClienteRentar", urlPatterns = {"/consultaClienteRentar"})
-public class consultaClienteRentar extends HttpServlet {
+@WebServlet(name = "devolver", urlPatterns = {"/devolver"})
+public class devolver extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,51 +36,24 @@ public class consultaClienteRentar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            IPersistencia crud = new PersistenciaBD();
-
-            List lista = crud.consultarClientes();
-
-            Cliente c;
-
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Consulta todos los clientes</title>");
+            out.println("<title>¡Devolver!</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<nav>");
-            out.println(" <ul>");
-            out.println("<li><a href=\"control?tarea=rentar\">¡Rentar un videojuego!</a></li>");
-            out.println(" <li><a href=\"control?tarea=devolver\">¡Devolver un videojuego!</a></li>");
-            out.println("</ul>");
-            out.println("</nav>");
-            out.println("</body>");
-            out.println("<table border=1>");
-
-            for (int i = 0; i < lista.size(); i++) {
-
-                c = (Cliente) lista.get(i);
-
-                out.println("<tr>"
-                        + "<td>" + c.getNumCredencial() + "</td>"
-                        + "<td>" + c.getNombre() + "</td>"
-                        + "<td>" + c.getDireccion() + "</td>"
-                        + "<td>" + c.getTelefono() + "</td>" + "</tr>");
-
-            }
-
-            out.println("<form action=\"consultaVideojuegoRentar\">");
-            out.println(" <ul>");
-            out.println("<li><input type=\"number\" name=\"numCredencial\" placeholder=\"Num. Catálogo cliente\"/></li>");
-            out.println("<li><input type=\"submit\" value =\"Capturar id cliente\" />");
-            out.println("</ul>");
-            out.println("  </form>");
-
+            out.println("<h1> Estás devolviendo algo </h1>");
             
-
+            
+            IPersistencia crud = new PersistenciaBD();
+            
+            
+            crud.devolverVideojuego(crud.consultarRentasVideojuegos().get(Integer.parseInt(request.getParameter("numRenta"))-1));
+            
+             out.println("<h1> Artículo devuelto correctamente. </h1>");
+             out.println("</body>");
             out.println("</html>");
-            request.getSession().setAttribute("clienteARentar", request.getParameter("numCredencial"));
         }
     }
 

@@ -44,7 +44,7 @@ public class rentar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           out.println("<!DOCTYPE html>");
+            out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Consulta todos los clientes</title>");
@@ -56,47 +56,34 @@ public class rentar extends HttpServlet {
             out.println(" <li><a href=\"control?tarea=devolver\">¡Devolver un videojuego!</a></li>");
             out.println("</ul>");
             out.println("</nav>");
-           
-            
-            
             IPersistencia crud = new PersistenciaBD();
             List<Cliente> listaClientes = crud.consultarClientes();
             List<ArticuloED> listaVideojuegos = crud.consultarVideojuegosDisponibles();
             Renta renta = new Renta();
-            for (int i = 0; i < listaVideojuegos.size(); i++) {
-                if(listaVideojuegos.get(i).getArticulo().getNumCatalogo().equalsIgnoreCase((String)request.getSession().getAttribute("VideojuegoARentar"))){
-                   renta.setArticulo(listaVideojuegos.get(i).getArticulo());
+
+            for (ArticuloED listaVideojuego : listaVideojuegos) {
+                if (listaVideojuego.getArticulo().getNumCatalogo().equalsIgnoreCase(request.getParameter("numCatalogo"))) {
+                    renta.setArticulo(listaVideojuego.getArticulo());
                 }
             }
-            for (int i = 0; i < listaClientes.size(); i++) {
-                if(listaClientes.get(i).getNumCredencial().equalsIgnoreCase((String)request.getSession().getAttribute("clienteARentar"))){
-                   renta.setCliente(listaClientes.get(i));
+
+            for (Cliente listaCliente : listaClientes) {
+                if (listaCliente.getNumCredencial().equalsIgnoreCase(request.getParameter("numCredencial"))) {
+                    renta.setCliente(listaCliente);
                 }
+
             }
-            
-//            Fecha fecha = new Fecha((java.sql.Date)request.getSession().getAttribute("fechaRenta"));
-                Fecha fecha = new Fecha();
+
+            Fecha fecha = new Fecha();
             renta.setFechaRenta(fecha);
-            
-            renta.setTiempoRenta((int) request.getSession().getAttribute("tiempoRenta"));
-            
+
+            renta.setTiempoRenta(Integer.parseInt(request.getParameter("tiempoRenta")));
             crud.rentarVideojuego(renta);
-            
-            
-            
-             out.println("<h1> ¡Rentado correctamente! </h1>");
-             out.println("</body>");
-            
-            
-//            for (ArticuloED listaVideojuego : listaVideojuegos) {
-//                if(listaVideojuego.getArticulo().getNumCatalogo().equalsIgnoreCase((String)request.getSession().getAttribute("numCatalogo"))){
-//                    
-//                }
-//            }
-            
-//            Renta renta = new Renta(request.getSession().getAttribute("numCredencial"), , fechaRenta, 0);
-            
-          out.println("</html>");  
+
+            out.println("<h1> ¡Rentado correctamente! </h1>");
+            out.println("</body>");
+
+            out.println("</html>");  
         }
     }
 
