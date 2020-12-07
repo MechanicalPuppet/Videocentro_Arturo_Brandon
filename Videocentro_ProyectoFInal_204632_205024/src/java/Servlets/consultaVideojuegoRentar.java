@@ -14,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Renta;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
@@ -22,8 +21,8 @@ import persistencia.PersistenciaBD;
  *
  * @author Jbran
  */
-@WebServlet(name = "consultarVideojuegoGenero", urlPatterns = {"/consultarVideojuegoGenero"})
-public class consultarVideojuegoGenero extends HttpServlet {
+@WebServlet(name = "consultaVideojuegoRentar", urlPatterns = {"/consultaVideojuegoRentar"})
+public class consultaVideojuegoRentar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,43 +37,55 @@ public class consultarVideojuegoGenero extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-               IPersistencia crud = new PersistenciaBD();
-    
-        List lista = crud.consultarVideojuegos();
-     
-        
-        Videojuego v;
-        
-        out.println("<!DOCTYPE html>");
+            /* TODO output your page here. You may use following sample code. */
+         IPersistencia crud = new PersistenciaBD();
+
+            List lista = crud.consultarVideojuegosDisponibles();
+
+            Videojuego v;
+
+            out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Consulta todos los videojuegos del género"+request.getParameter("genero")+"</title>");            
+            out.println("<title>Consulta todos los videojuegos</title>");
             out.println("</head>");
             out.println("<body>");
+            out.println("<nav>");
+            out.println(" <ul>");
+            out.println("<li><a href=\"control?tarea=rentar\">¡Rentar un videojuego!</a></li>");
+            out.println(" <li><a href=\"control?tarea=devolver\">¡Devolver un videojuego!</a></li>");
+            out.println("</ul>");
+            out.println("</nav>");
             out.println("</body>");
             out.println("<table border=1>");
-            
-            
-            /* TODO output your page here. You may use following sample code. */
 
-            
             for (int i = 0; i < lista.size(); i++) {
-           
-            v=(Videojuego)lista.get(i);
-           if(v.getGenero().toLowerCase().contains(request.getParameter("genero").toLowerCase()) || v.getGenero().equalsIgnoreCase(request.getParameter("genero"))){
-            
-            out.println("<tr>"
-                    + "<td>" + v.getNumCatalogo()+ "</td>"
-                    + "<td>" + v.getTitulo() + "</td>"
-                    + "<td>" + v.getGenero() + "</td>"
-                    + "<td>" + v.getConsola() + "</td>"
-                    + "<td>"+ v.getFabricante() + "</td>"
-                    + "<td>"+ v.getVersion() + "</td>"+"</tr>");
-           }
-            
-        }
-             out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
+
+                v = (Videojuego) lista.get(i);
+
+                out.println("<tr>"
+                        + "<td>" + v.getNumCatalogo() + "</td>"
+                        + "<td>" + v.getTitulo() + "</td>"
+                        + "<td>" + v.getGenero() + "</td>"
+                        + "<td>" + v.getConsola() + "</td>"
+                        + "<td>" + v.getFabricante() + "</td>"
+                        + "<td>" + v.getVersion() + "</td>" + "</tr>");
+
+            }
+             out.println("<form action=\"consultaVideojuegoRentar\">");
+            out.println(" <ul>");
+            out.println("<li><input type=\"number\" name=\"numCatalogo\" placeholder=\"Num. Catálogo cliente\"/></li>");
+            out.println("<li><input type=\"submit\" value =\"Capturar id cliente\" />");
+            out.println("</ul>");
+            out.println("  </form>");
+
+            request.getSession().setAttribute("VideojuegoARentar", request.getParameter("numCatalogo"));
+                    
+                    
+                    
+                    
+                    
+                    
             out.println("</html>");
         }
     }

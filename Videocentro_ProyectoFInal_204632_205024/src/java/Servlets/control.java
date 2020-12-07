@@ -45,7 +45,6 @@ public class control extends HttpServlet {
             response.sendRedirect("capturaConsultarVideojuegoTitulo.html");
         } else if (tareaSeleccionada.equals("consultarVideojuegosGenero")){
             response.sendRedirect("capturaConsultarVideojuegoGenero.html");
-            
         } else if (tareaSeleccionada.equals("agregarCliente")){
             response.sendRedirect("capturaCliente.html");
         } else if (tareaSeleccionada.equals("editarCliente")){
@@ -54,7 +53,11 @@ public class control extends HttpServlet {
             response.sendRedirect("capturaCredencialClienteEliminar.jsp");
         } else if (tareaSeleccionada.equals("consultarCliente")){
             response.sendRedirect("consultarClientes");
-        }
+        } else if (tareaSeleccionada.equals("rentas")){
+                response.sendRedirect("rentas.html");
+            } else if (tareaSeleccionada.equals("rentar")){
+                response.sendRedirect("consultaClienteRentar");
+            }
          
          
     }

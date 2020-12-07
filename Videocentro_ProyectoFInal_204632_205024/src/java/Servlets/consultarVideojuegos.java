@@ -43,13 +43,16 @@ public class consultarVideojuegos extends HttpServlet {
             List lista = crud.consultarVideojuegos();
 
             Videojuego v;
-
+            
+            
+           
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Consulta todos los videojuegos</title>");
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body>"); 
             out.println("</body>");
             out.println("<table border=1>");
 

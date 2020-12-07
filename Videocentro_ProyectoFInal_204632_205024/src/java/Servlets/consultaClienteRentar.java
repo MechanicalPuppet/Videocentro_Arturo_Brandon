@@ -14,16 +14,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Renta;
-import objetosNegocio.Videojuego;
+import objetosNegocio.Cliente;
 import persistencia.PersistenciaBD;
 
 /**
  *
  * @author Jbran
  */
-@WebServlet(name = "consultarVideojuegoGenero", urlPatterns = {"/consultarVideojuegoGenero"})
-public class consultarVideojuegoGenero extends HttpServlet {
+@WebServlet(name = "consultaClienteRentar", urlPatterns = {"/consultaClienteRentar"})
+public class consultaClienteRentar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,42 +38,76 @@ public class consultarVideojuegoGenero extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-               IPersistencia crud = new PersistenciaBD();
-    
-        List lista = crud.consultarVideojuegos();
-     
-        
-        Videojuego v;
-        
-        out.println("<!DOCTYPE html>");
+            IPersistencia crud = new PersistenciaBD();
+
+            List lista = crud.consultarClientes();
+
+            Cliente c;
+            
+            out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Consulta todos los videojuegos del género"+request.getParameter("genero")+"</title>");            
+            out.println("<title>Consulta todos los clientes</title>");
             out.println("</head>");
             out.println("<body>");
+            out.println("<nav>");
+            out.println(" <ul>");
+            out.println("<li><a href=\"control?tarea=rentar\">¡Rentar un videojuego!</a></li>");
+            out.println(" <li><a href=\"control?tarea=devolver\">¡Devolver un videojuego!</a></li>");
+            out.println("</ul>");
+            out.println("</nav>");
             out.println("</body>");
             out.println("<table border=1>");
-            
-            
-            /* TODO output your page here. You may use following sample code. */
 
-            
             for (int i = 0; i < lista.size(); i++) {
-           
-            v=(Videojuego)lista.get(i);
-           if(v.getGenero().toLowerCase().contains(request.getParameter("genero").toLowerCase()) || v.getGenero().equalsIgnoreCase(request.getParameter("genero"))){
+
+                c = (Cliente) lista.get(i);
+
+                out.println("<tr>"
+                        + "<td>" + c.getNumCredencial() + "</td>"
+                        + "<td>" + c.getNombre()+ "</td>"
+                        + "<td>" + c.getDireccion()+ "</td>"
+                        + "<td>" + c.getTelefono()+ "</td>" + "</tr>");
+                
+
+            }
             
-            out.println("<tr>"
-                    + "<td>" + v.getNumCatalogo()+ "</td>"
-                    + "<td>" + v.getTitulo() + "</td>"
-                    + "<td>" + v.getGenero() + "</td>"
-                    + "<td>" + v.getConsola() + "</td>"
-                    + "<td>"+ v.getFabricante() + "</td>"
-                    + "<td>"+ v.getVersion() + "</td>"+"</tr>");
-           }
-            
-        }
-             out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
+            out.println("<form action=\"consultaVideojuegoRentar\">");
+            out.println(" <ul>");
+            out.println("<li><input type=\"number\" name=\"numCatalogo\" placeholder=\"Num. Catálogo cliente\"/></li>");
+            out.println("<li><input type=\"submit\" value =\"Capturar id cliente\" />");
+            out.println("</ul>");
+            out.println("  </form>");
+
+            Cliente auxiliar = new Cliente(request.getParameter("numCredencial"));
+            if(lista.contains(auxiliar)){
+            request.getSession().setAttribute("clienteARentar", request.getParameter("numCredencial"));
+            } else {
+//                out.println("<div id='openModal' class='modalDialog'>");
+//                out.println("<div>");
+//                out.println("<a href=\"#close\" title=\"Close\" class=\"close\">X</a>");
+//                out.println("<h2>¡Error!</h2>");
+//                out.println("<p>Lo lamento.</p>");
+//                out.println("<p>El cliente que introduciste no existe. Intentalo nuevamente.</p>");
+//                out.println("</div>");
+//                out.println("</div>");
+//	
+            out.println("<body>");
+            out.println("<script>");
+            out.println("alert('El cliente que introduciste no existe. Intentalo nuevamente.'");
+            out.println("</script>");
+            out.println("</body>");
+	
+		
+		
+	
+
+            }
+                    
+                    
+                    
+                    
+                    
             out.println("</html>");
         }
     }

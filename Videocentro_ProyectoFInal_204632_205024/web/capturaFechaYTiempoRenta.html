@@ -6,21 +6,11 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>¡Rentas!</title>
+        <title>Capturar Fecha y Tiempo de renta</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    
     <body>
-        
-        <header>
-            
-            <h1>¡Bienvenido al menú para rentar o devolver videojuegos!</h1> <br>
-            <h1> ¡Selecciona una opción! </h1>
-            
-        </header>
-        
-        
         
         <nav>
             
@@ -34,6 +24,16 @@ and open the template in the editor.
             
         </nav>
         
+        
+        <form action = "rentar">
+            <ul>
+            
+                <li><input type="date" name="fechaRenta" value='2020-12-01' min ='2020-01-01' max='2030-12-31'></li>
+                <li><input type='number' name="tiempoRenta" value="1"> </li>
+                <li><input type="submit" value ="Rentar"> </li>
+                
+            </ul>
+        </form>
         
     </body>
 </html>

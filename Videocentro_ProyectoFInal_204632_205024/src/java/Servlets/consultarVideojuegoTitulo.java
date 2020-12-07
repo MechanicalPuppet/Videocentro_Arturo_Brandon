@@ -72,6 +72,8 @@ public class consultarVideojuegoTitulo extends HttpServlet {
            }
             
         }
+             out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
+            out.println("</html>");
         }
     }
 
