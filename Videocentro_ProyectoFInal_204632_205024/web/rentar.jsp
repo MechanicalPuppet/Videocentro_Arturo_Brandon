@@ -91,9 +91,9 @@
 
         <form action="rentar">
             <ul>
-                <li><input type="number" name="numCredencial" placeholder="Num. Credencial cliente" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
-                <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo artículo" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
-                <li><input type="number" name="tiempoRenta" placeholder="Número de días de la renta" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
+                <li><input type="number" name="numCredencial" placeholder="Num. Credencial cliente" style="width: 200px" required min="1" max="<%=crud.consultarClientes().size()%>"/></li>
+                <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo artículo" style="width: 200px" required min="1" max="<%=crud.consultarVideojuegosDisponibles().size()%>"/></li>
+                <li><input type="number" name="tiempoRenta" placeholder="Número de días de la renta" style="width: 200px" required min="1" max="30"/></li>
                 <li><input type="submit" value="Realizar renta"> </li>
             </ul> 
 

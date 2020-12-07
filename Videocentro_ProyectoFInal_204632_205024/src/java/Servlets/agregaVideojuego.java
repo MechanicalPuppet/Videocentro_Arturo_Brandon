@@ -53,7 +53,7 @@ public class agregaVideojuego extends HttpServlet {
                 crud.agregar(juegoNuevo);
                 response.sendRedirect("videojuegos.html");
             } catch(Exception e){
-                response.sendRedirect("error.html");
+                response.sendRedirect("errorYaExiste.html");
                 System.out.println("No se pudo agregar el videojuego.");
             }
             

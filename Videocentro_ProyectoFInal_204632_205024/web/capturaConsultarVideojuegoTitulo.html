@@ -27,7 +27,7 @@ and open the template in the editor.
             <h1> ¡Ingresa el título del videojuego a consultar!</h1>
             <form action="consultarVideojuegoTitulo">
                 <ul>
-                    <li><input type="text" name="titulo" placeholder="Titulo"/></li>
+                    <li><input type="text" name="titulo" placeholder="Titulo" pattern="[a-zA-Z ]{3,35}" required/></li>
                     <li><input type="submit" value ="Capturar titulo" />
                 </ul>
                 </form>

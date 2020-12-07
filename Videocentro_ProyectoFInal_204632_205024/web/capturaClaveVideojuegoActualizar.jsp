@@ -30,15 +30,7 @@
         </nav>
         
         <article>
-            <h1> ¡Ingresa la clave de tu videojuego a editar!</h1>
-            <form action="obtenVideojuegoActualizar">
-                <ul>
-                    <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo"/></li>
-                    <li><input type="submit" value ="Capturar id" />
-                </ul>
-                </form>
-         
-    
+            
             <% 
             IPersistencia crud = new PersistenciaBD();
 
@@ -62,6 +54,16 @@
             }
             
             %>
+            <h1> ¡Ingresa la clave de tu videojuego a editar!</h1>
+            <form action="obtenVideojuegoActualizar">
+                <ul>
+                    <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo" required min="1" style="width: 200px" max="<%=crud.consultarVideojuegos().size()%> "/></li>
+                    <li><input type="submit" value ="Capturar id" />
+                </ul>
+                </form>
+         
+    
+            
             
             <script>
              

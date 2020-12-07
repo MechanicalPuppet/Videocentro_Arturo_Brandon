@@ -31,7 +31,7 @@
             <h1> ¡Ingresa la clave de tu videojuego al cual deseas consultar su inventario!</h1>
             <form action="obtenVideojuegoConsultarInventario">
                 <ul>
-                    <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo"/></li>
+                    <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo" required min="0"/></li>
                     <li><input type="submit" value ="Capturar id" />
                 </ul>
             </form>

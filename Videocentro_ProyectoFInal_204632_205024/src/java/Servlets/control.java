@@ -32,47 +32,40 @@ public class control extends HttpServlet {
             throws ServletException, IOException {
          String tareaSeleccionada= request.getParameter("tarea");
          
-         if(tareaSeleccionada.equals("agregarVideojuego")){
+        if (tareaSeleccionada.equals("agregarVideojuego")) {
             response.sendRedirect("capturaVideojuego.html");
-        } else if (tareaSeleccionada.equals("editarVideojuego")){
+        } else if (tareaSeleccionada.equals("editarVideojuego")) {
             response.sendRedirect("capturaClaveVideojuegoActualizar.jsp");
-            
-        } else if (tareaSeleccionada.equals("eliminarVideojuego")){
+        } else if (tareaSeleccionada.equals("eliminarVideojuego")) {
             response.sendRedirect("capturaClaveVideojuegoEliminar.jsp");
-        } else if (tareaSeleccionada.equals("consultarVideojuegos")){
+        } else if (tareaSeleccionada.equals("consultarVideojuegos")) {
             response.sendRedirect("consultarVideojuegos");
-        } else if (tareaSeleccionada.equals("consultarVideojuegosTitulo")){
+        } else if (tareaSeleccionada.equals("consultarVideojuegosTitulo")) {
             response.sendRedirect("capturaConsultarVideojuegoTitulo.html");
-        } else if (tareaSeleccionada.equals("consultarVideojuegosGenero")){
+        } else if (tareaSeleccionada.equals("consultarVideojuegosGenero")) {
             response.sendRedirect("capturaConsultarVideojuegoGenero.html");
-            
-            
-        } else if (tareaSeleccionada.equals("agregarCliente")){
+        } else if (tareaSeleccionada.equals("agregarCliente")) {
             response.sendRedirect("capturaCliente.jsp");
-        } else if (tareaSeleccionada.equals("editarCliente")){
+        } else if (tareaSeleccionada.equals("editarCliente")) {
             response.sendRedirect("capturaCredencialClienteActualizar.jsp");
-        } else if (tareaSeleccionada.equals("eliminarCliente")){
+        } else if (tareaSeleccionada.equals("eliminarCliente")) {
             response.sendRedirect("capturaCredencialClienteEliminar.jsp");
-        } else if (tareaSeleccionada.equals("consultarCliente")){
-            response.sendRedirect("consultarClientes");    
-            
-            
+        } else if (tareaSeleccionada.equals("consultarCliente")) {
+            response.sendRedirect("consultarClientes");
         } else if (tareaSeleccionada.equals("inventarear")) {
             response.sendRedirect("capturaClaveVideojuegoInventarear.jsp");
         } else if (tareaSeleccionada.equals("desinventarear")) {
             response.sendRedirect("capturaClaveVideojuegoDesinventarear.jsp");
         } else if (tareaSeleccionada.equals("consultarInventario")) {
             response.sendRedirect("capturaClaveVideojuegoConsultarInventario.jsp");
-            
-            
-        } else if (tareaSeleccionada.equals("rentas")){
-                response.sendRedirect("rentas.html");
-            } else if (tareaSeleccionada.equals("rentar")){
-                response.sendRedirect("rentar.jsp");
-            } else if(tareaSeleccionada.equals("devolver")){
-                response.sendRedirect("devolver.jsp");
-            }
-         
+        } else if (tareaSeleccionada.equals("rentas")) {
+            response.sendRedirect("rentas.html");
+        } else if (tareaSeleccionada.equals("rentar")) {
+            response.sendRedirect("rentar.jsp");
+        } else if (tareaSeleccionada.equals("devolver")) {
+            response.sendRedirect("devolver.jsp");
+        }
+
          
     }
 

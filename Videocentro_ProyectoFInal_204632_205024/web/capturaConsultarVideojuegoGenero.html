@@ -27,7 +27,7 @@ and open the template in the editor.
             <h1> ¡Ingresa el género del videojuego a consultar!</h1>
             <form action="consultarVideojuegoGenero">
                 <ul>
-                    <li><input type="text" name="genero" placeholder="Genero"/></li>
+                    <li><input type="text" name="genero" placeholder="Genero" required pattern="[a-zA-Z ]{3,35}"/></li>
                     <li><input type="submit" value ="Capturar genero" />
                 </ul>
                 </form>

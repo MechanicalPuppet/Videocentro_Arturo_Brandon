@@ -49,7 +49,7 @@ public class agregaCliente extends HttpServlet {
                 crud.agregar(cliente);
                 response.sendRedirect("consultarClientes");
             }catch(Exception e){
-                response.sendRedirect("error.html");
+                response.sendRedirect("errorYaExiste.html");
             }
         }
     }

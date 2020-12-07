@@ -53,7 +53,7 @@
         
         <form action="devolver">
                 <ul>
-                    <li><input type="number" name="numRenta" placeholder="Num. Renta" required min="1" max="<%=crud.consultarRentasVideojuegos().size() %>"/></li>
+                    <li><input type="number" name="numRenta" placeholder="Num. Renta" style="width :200px" required min="1" max="<%=crud.consultarRentasVideojuegos().size() %>"/></li>
                     <li><input type="submit" value="Realizar renta"> </li>
                 </ul> 
                 
