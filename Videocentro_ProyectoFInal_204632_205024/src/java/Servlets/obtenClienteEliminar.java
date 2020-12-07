@@ -49,7 +49,7 @@ public class obtenClienteEliminar extends HttpServlet {
             
             for (Cliente clientei : lista) {
              
-                if(cliente.getNumCredencial().equalsIgnoreCase(cliente.getNumCredencial())){
+                if(cliente.getNumCredencial().equalsIgnoreCase(clientei.getNumCredencial())){
                    
                         crud.eliminar(cliente);
                         

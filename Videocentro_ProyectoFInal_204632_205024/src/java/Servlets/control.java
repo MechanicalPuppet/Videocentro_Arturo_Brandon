@@ -52,7 +52,13 @@ public class control extends HttpServlet {
         } else if (tareaSeleccionada.equals("eliminarCliente")){
             response.sendRedirect("capturaCredencialClienteEliminar.jsp");
         } else if (tareaSeleccionada.equals("consultarCliente")){
-            response.sendRedirect("consultarClientes");
+            response.sendRedirect("consultarClientes");    
+        } else if (tareaSeleccionada.equals("inventarear")) {
+            response.sendRedirect("capturaClaveVideojuegoInventarear.jsp");
+        } else if (tareaSeleccionada.equals("desinventarear")) {
+            response.sendRedirect("capturaClaveVideojuegoDesinventarear.jsp");
+        } else if (tareaSeleccionada.equals("consultarInventario")) {
+            response.sendRedirect("capturaClaveVideojuegoConsultarInventario.jsp");
         } else if (tareaSeleccionada.equals("rentas")){
                 response.sendRedirect("rentas.html");
             } else if (tareaSeleccionada.equals("rentar")){

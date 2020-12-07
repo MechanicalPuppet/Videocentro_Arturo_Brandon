@@ -37,13 +37,13 @@ public class consultaClienteRentar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             IPersistencia crud = new PersistenciaBD();
 
             List lista = crud.consultarClientes();
 
             Cliente c;
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -65,50 +65,23 @@ public class consultaClienteRentar extends HttpServlet {
 
                 out.println("<tr>"
                         + "<td>" + c.getNumCredencial() + "</td>"
-                        + "<td>" + c.getNombre()+ "</td>"
-                        + "<td>" + c.getDireccion()+ "</td>"
-                        + "<td>" + c.getTelefono()+ "</td>" + "</tr>");
-                
+                        + "<td>" + c.getNombre() + "</td>"
+                        + "<td>" + c.getDireccion() + "</td>"
+                        + "<td>" + c.getTelefono() + "</td>" + "</tr>");
 
             }
-            
+
             out.println("<form action=\"consultaVideojuegoRentar\">");
             out.println(" <ul>");
-            out.println("<li><input type=\"number\" name=\"numCatalogo\" placeholder=\"Num. Catálogo cliente\"/></li>");
+            out.println("<li><input type=\"number\" name=\"numCredencial\" placeholder=\"Num. Catálogo cliente\"/></li>");
             out.println("<li><input type=\"submit\" value =\"Capturar id cliente\" />");
             out.println("</ul>");
             out.println("  </form>");
 
-            Cliente auxiliar = new Cliente(request.getParameter("numCredencial"));
-            if(lista.contains(auxiliar)){
-            request.getSession().setAttribute("clienteARentar", request.getParameter("numCredencial"));
-            } else {
-//                out.println("<div id='openModal' class='modalDialog'>");
-//                out.println("<div>");
-//                out.println("<a href=\"#close\" title=\"Close\" class=\"close\">X</a>");
-//                out.println("<h2>¡Error!</h2>");
-//                out.println("<p>Lo lamento.</p>");
-//                out.println("<p>El cliente que introduciste no existe. Intentalo nuevamente.</p>");
-//                out.println("</div>");
-//                out.println("</div>");
-//	
-            out.println("<body>");
-            out.println("<script>");
-            out.println("alert('El cliente que introduciste no existe. Intentalo nuevamente.'");
-            out.println("</script>");
-            out.println("</body>");
-	
-		
-		
-	
+            
 
-            }
-                    
-                    
-                    
-                    
-                    
             out.println("</html>");
+            request.getSession().setAttribute("clienteARentar", request.getParameter("numCredencial"));
         }
     }
 

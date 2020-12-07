@@ -14,6 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objetosNegocio.Articulo;
+import objetosNegocio.ArticuloED;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
@@ -40,9 +42,9 @@ public class consultaVideojuegoRentar extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
          IPersistencia crud = new PersistenciaBD();
 
-            List lista = crud.consultarVideojuegosDisponibles();
+            List<ArticuloED> lista = crud.consultarVideojuegosDisponibles();
 
-            Videojuego v;
+            Articulo v;
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -61,18 +63,16 @@ public class consultaVideojuegoRentar extends HttpServlet {
 
             for (int i = 0; i < lista.size(); i++) {
 
-                v = (Videojuego) lista.get(i);
+                v = lista.get(i).getArticulo();
 
                 out.println("<tr>"
                         + "<td>" + v.getNumCatalogo() + "</td>"
                         + "<td>" + v.getTitulo() + "</td>"
-                        + "<td>" + v.getGenero() + "</td>"
-                        + "<td>" + v.getConsola() + "</td>"
-                        + "<td>" + v.getFabricante() + "</td>"
-                        + "<td>" + v.getVersion() + "</td>" + "</tr>");
+                        + "<td>" + v.getGenero() + "</td>" + "</tr>");
 
             }
-             out.println("<form action=\"consultaVideojuegoRentar\">");
+            
+            out.println("<form action=\"capturaFechaYTiempoRenta.html\">");
             out.println(" <ul>");
             out.println("<li><input type=\"number\" name=\"numCatalogo\" placeholder=\"Num. Catálogo cliente\"/></li>");
             out.println("<li><input type=\"submit\" value =\"Capturar id cliente\" />");
@@ -80,7 +80,7 @@ public class consultaVideojuegoRentar extends HttpServlet {
             out.println("  </form>");
 
             request.getSession().setAttribute("VideojuegoARentar", request.getParameter("numCatalogo"));
-                    
+//            request.getSession().setAttribute("clienteRentar", request.getSession().getAttribute("clienteARentar"));
                     
                     
                     

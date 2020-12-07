@@ -6,6 +6,7 @@
 package test;
 
 import interfaces.IPersistencia;
+import objetosNegocio.ArticuloED;
 import objetosNegocio.Cliente;
 import persistencia.PersistenciaBD;
 
@@ -18,8 +19,7 @@ public class Test {
     public static void main(String[] args) {
         
         IPersistencia crud = new PersistenciaBD();
-        
-        crud.agregar(new Cliente("1", "jaimito", "porahi", "123"));
+       
     }
     
 }
