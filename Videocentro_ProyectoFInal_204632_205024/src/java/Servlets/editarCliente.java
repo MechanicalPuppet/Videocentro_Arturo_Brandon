@@ -54,6 +54,7 @@ public class editarCliente extends HttpServlet {
             out.println("<body>");
             out.println("<h1> ¡¡Cliente actualizado!! </h1>");
             out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar</button></a>");
+            response.sendRedirect("consultarClientes");
             out.println("</body>");
             out.println("</html>");
         }

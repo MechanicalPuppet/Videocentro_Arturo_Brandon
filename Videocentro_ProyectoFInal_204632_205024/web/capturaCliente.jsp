@@ -32,7 +32,7 @@
             <h1> ¡AGREGAR CLIENTE!</h1>
             <form action="agregaCliente">
                 <ul>
-                    <li><input type="number" name="numCredencial" placeholder="Número de credencial"  min="1" max="9999999999" required/> </li>
+                    <li><input type="number" name="numCredencial" placeholder="Núm. credencial"  min="1" max="9999999999" required/> </li>
                     <li><input type="text" name="nombre" placeholder="Nombre" pattern="[a-zA-Z ]{3,35}" maxlength="35" required/>Solamente se permiten letras </li>
                     <li><input type="text" name="direccion" placeholder="Dirección"  maxlength="35" required/> </li>
                     <li><input type="text" name="telefono" placeholder="Teléfono" maxlength="15" pattern="^[0-9]+"/> </li>

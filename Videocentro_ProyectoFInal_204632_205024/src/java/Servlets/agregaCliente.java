@@ -47,7 +47,7 @@ public class agregaCliente extends HttpServlet {
             
             try{
                 crud.agregar(cliente);
-                response.sendRedirect("consultarCliente.jsp");
+                response.sendRedirect("consultarClientes");
             }catch(Exception e){
                 response.sendRedirect("error.html");
             }

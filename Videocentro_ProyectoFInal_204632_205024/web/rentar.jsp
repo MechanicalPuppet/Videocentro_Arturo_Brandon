@@ -20,45 +20,44 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-   
+
     <header>
         <h1>¡Estás en la parte de rentas!</h1>
-        
+
     </header>
 
 
     <nav>
         <ul>
-        <li><a href="control?tarea=rentar">¡Rentar un videojuego!</a></li>
-        <li><a href="control?tarea=devolver">¡Devolver un videojuego!</a></li>
+            <li><a href="control?tarea=rentar">¡Rentar un videojuego!</a></li>
+            <li><a href="control?tarea=devolver">¡Devolver un videojuego!</a></li>
         </ul>
-    
+
     </nav>
-    
+
     <article>
         <%
 
             IPersistencia crud = new PersistenciaBD();
 
             List listaClientes = crud.consultarClientes();
-       
 
             List<ArticuloED> listaArticulos = crud.consultarVideojuegosDisponibles();
 
             Articulo v;
 
             Cliente c;
-             out.println("<table border=1>");
-                out.println("<tr>");
-                out.println("<th> Numero credencial </th>");
-                out.println("<th> Nombre </th>");
-                out.println("<th> Direccion </th>");
-                out.println("<th> Telefono </th>");
-                out.println("</tr>");
-        for (int i = 0; i < listaClientes.size(); i++) {
+            out.println("<table border=1>");
+            out.println("<tr>");
+            out.println("<th> Numero credencial </th>");
+            out.println("<th> Nombre </th>");
+            out.println("<th> Direccion </th>");
+            out.println("<th> Telefono </th>");
+            out.println("</tr>");
+            for (int i = 0; i < listaClientes.size(); i++) {
 
                 c = (Cliente) listaClientes.get(i);
-               
+
                 out.println("<tr>"
                         + "<td>" + c.getNumCredencial() + "</td>"
                         + "<td>" + c.getNombre() + "</td>"
@@ -66,39 +65,39 @@
                         + "<td>" + c.getTelefono() + "</td>" + "</tr>");
 
             }
-        out.println("</table>");
+            out.println("</table>");
             out.println("<br>");
-            
+
             out.println("<table border=1>");
             out.println("<tr>");
-                out.println("<th> Numero catalogo </th>");
-                out.println("<th> Titulo </th>");
-                out.println("<th> Genero </th>");
+            out.println("<th> Numero catalogo </th>");
+            out.println("<th> Titulo </th>");
+            out.println("<th> Genero </th>");
 
-                out.println("</tr>");
-             for (int i = 0; i < listaArticulos.size(); i++) {
+            out.println("</tr>");
+            for (int i = 0; i < listaArticulos.size(); i++) {
 
                 v = listaArticulos.get(i).getArticulo();
-            
+
                 out.println("<tr>"
                         + "<td>" + v.getNumCatalogo() + "</td>"
                         + "<td>" + v.getTitulo() + "</td>"
                         + "<td>" + v.getGenero() + "</td>" + "</tr>");
 
             }
-        out.println("</table>");
+            out.println("</table>");
         %>
- 
-      
-            <form action="rentar">
-                <ul>
-                    <li><input type="number" name="numCredencial" placeholder="Num. Credencial cliente" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
-                    <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo artículo" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
-                    <li><input type="number" name="tiempoRenta" placeholder="Número de días de la renta" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
-                    <li><input type="submit" value="Realizar renta"> </li>
-                </ul> 
-                
-            </form>
+
+
+        <form action="rentar">
+            <ul>
+                <li><input type="number" name="numCredencial" placeholder="Num. Credencial cliente" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
+                <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo artículo" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
+                <li><input type="number" name="tiempoRenta" placeholder="Número de días de la renta" required min="1" max="<%=crud.consultarRentasVideojuegos().size()%>"/></li>
+                <li><input type="submit" value="Realizar renta"> </li>
+            </ul> 
+
+        </form>
     </article>
-    
+
 </html>

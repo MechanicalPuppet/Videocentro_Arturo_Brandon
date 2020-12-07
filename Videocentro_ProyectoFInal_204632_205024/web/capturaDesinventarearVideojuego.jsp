@@ -38,7 +38,7 @@
                     <li><input type="text" name="consola" readonly="readonly" value="<%=session.getAttribute("consola") %>"/> </li>
                     <li><input type="text" name="fabricante" readonly="readonly" value="<%=session.getAttribute("fabricante") %>"/> </li>
                     <li><input type="number" name="version" readonly="readonly" value="<%=session.getAttribute("version") %>"/> </li>
-                    <li><input type="number" name="existencia" placeholder="Existencia a quitar"/> </li>
+                    <li><input type="number" name="existencia" placeholder="Existencia a quitar" min="1" max="9999999999" required/> </li>
                     <li><input type="submit" value ="Desinventarear videojuego" />
                 </ul>
             </form>

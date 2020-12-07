@@ -53,7 +53,7 @@ public class obtenClienteEliminar extends HttpServlet {
                    
                         crud.eliminar(cliente);
                         
-                   response.sendRedirect("eliminado.html");
+                   response.sendRedirect("consultarClientes");
                 break;
                 
                 }

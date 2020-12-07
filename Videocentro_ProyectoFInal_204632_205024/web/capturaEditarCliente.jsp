@@ -32,10 +32,10 @@
             <form action="editarCliente">
                 <ul>
                     
-                    <li><input type="number" name="numCredencial" readonly="readonly" value="<%=session.getAttribute("numCredencial")%>"/></li>
-                    <li><input type="text" name="nombre" value="<%= session.getAttribute("nombre") %>"/> </li>
-                    <li><input type="text" name="direccion" value="<%=session.getAttribute("direccion") %>"/> </li>
-                    <li><input type="text" name="telefono" value="<%=session.getAttribute("telefono") %>"/> </li>
+                    <li><input type="number" name="numCredencial" readonly value="<%=session.getAttribute("numCredencial")%>"/></li>
+                    <li><input type="text" name="nombre" pattern="[a-zA-Z ]{3,35}" maxlength="35" required value="<%= session.getAttribute("nombre") %>"/> </li>
+                    <li><input type="text" name="direccion" maxlength="35" required value="<%=session.getAttribute("direccion") %>"/> </li>
+                    <li><input type="text" name="telefono" maxlength="15" pattern="^[0-9]+" value="<%=session.getAttribute("telefono") %>"/> </li>
                     
                     <li><input type="submit" value ="Editar cliente" />
                 </ul>
