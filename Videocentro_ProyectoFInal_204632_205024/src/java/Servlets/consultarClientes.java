@@ -64,7 +64,7 @@ public class consultarClientes extends HttpServlet {
                         + "<td>" + c.getTelefono()+ "</td>" + "</tr>");
 
             }
-            out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar a inicio</button></a>");
+            out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
             out.println("</html>");
         }
     }
