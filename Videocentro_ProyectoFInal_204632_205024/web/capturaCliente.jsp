@@ -1,9 +1,11 @@
+<%-- 
+    Document   : capturaCliente
+    Created on : 7/12/2020, 12:05:24 AM
+    Author     : Jbran
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>CLIENTES</title>
@@ -30,10 +32,10 @@ and open the template in the editor.
             <h1> ¡AGREGAR CLIENTE!</h1>
             <form action="agregaCliente">
                 <ul>
-                    <li><input type="number" name="numCredencial" placeholder="Número de credencial"/> </li>
-                    <li><input type="text" name="nombre" placeholder="Nombre"/> </li>
-                    <li><input type="text" name="direccion" placeholder="Dirección"/> </li>
-                    <li><input type="text" name="telefono" placeholder="Teléfono"/> </li>
+                    <li><input type="number" name="numCredencial" placeholder="Número de credencial"  min="1" max="9999999999" required/> </li>
+                    <li><input type="text" name="nombre" placeholder="Nombre" pattern="[a-zA-Z ]{3,35}" maxlength="35" required/>Solamente se permiten letras </li>
+                    <li><input type="text" name="direccion" placeholder="Dirección"  maxlength="35" required/> </li>
+                    <li><input type="text" name="telefono" placeholder="Teléfono" maxlength="15" pattern="^[0-9]+"/> </li>
                     <li><input type="submit" value="Agregar cliente"/> </li>
                 </ul>
                 </form>

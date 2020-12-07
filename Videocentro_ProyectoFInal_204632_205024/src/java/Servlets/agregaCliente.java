@@ -41,13 +41,13 @@ public class agregaCliente extends HttpServlet {
             String numCredencial = request.getParameter("numCredencial");
             String nombre = request.getParameter("nombre");
             String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
+            String telefono = request.getParameter("telefono")+"";
             
             Cliente cliente = new Cliente(numCredencial, nombre, direccion, telefono);
             
             try{
                 crud.agregar(cliente);
-                response.sendRedirect("clientes.html");
+                response.sendRedirect("consultarCliente.jsp");
             }catch(Exception e){
                 response.sendRedirect("error.html");
             }
