@@ -10,6 +10,7 @@
     <head>
         <link href="estilos/estilosIndex.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="estilos/estilosIndex.css" rel="stylesheet" type="text/css"/>
         <title>VIDEOCENTRO ARTURO Y BRANDON</title>
     </head>
     <body>
