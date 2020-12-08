@@ -19,7 +19,11 @@
             response.sendRedirect("Login_JSP.jsp");
             }
         %>
-        <function>
+        
+        <header>
+            <h2> Videocentro "Silent Games" </h2> <h3><em> José Brandon Hernández y Arturo Mendoza</em> </h3>
+            
+        </header>
         
         <nav>
             <ul>
@@ -32,5 +36,21 @@
             </ul>
             
         </nav>
+         <article>
+            
+             <h1>¡Bienvenido al videocentro <em>Silent Games</em></h1>
+            <h2>Selecciona una opción de nuestro menú de navegación a la izquierda para empezar.</h2>
+            <h3>¡No te vas a perder!</h3>
+            <h3><----</h3>
+            <h4>(Creo)</h4>
+        </article>
+        
+        
+        <footer>
+            
+            <h1> el patas </h1>
+            
+        </footer>
+        
     </body>
 </html>
