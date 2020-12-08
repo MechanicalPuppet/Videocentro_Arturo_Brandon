@@ -4,6 +4,10 @@
     Author     : R2
 --%>
 
+<%@page import="objetosNegocio.ArticuloED"%>
+<%@page import="java.util.List"%>
+<%@page import="persistencia.PersistenciaBD"%>
+<%@page import="interfaces.IPersistencia"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,6 +33,18 @@
 
         <article>
             
+            <%
+                IPersistencia crud = new PersistenciaBD();
+                List<ArticuloED> lista = crud.consultarInventarioVideojuegos();
+
+                for (ArticuloED elem : lista) {
+                    if (elem.getArticulo().getNumCatalogo().equals(session.getAttribute("numCatalogo"))) {
+                        
+                        session.setAttribute("existenciaMax", elem.getExistencia());
+                    }
+                }
+            %>
+            
             <h1> ¡Ingresa la cantidad de existencia a quitar del videojuego!</h1>
             <form action="desinventarear">
                 <ul>
@@ -39,7 +55,7 @@
                     <li><input type="text" name="consola" readonly="readonly" value="<%=session.getAttribute("consola") %>"/> </li>
                     <li><input type="text" name="fabricante" readonly="readonly" value="<%=session.getAttribute("fabricante") %>"/> </li>
                     <li><input type="number" name="version" readonly="readonly" value="<%=session.getAttribute("version") %>"/> </li>
-                    <li><input type="number" name="existencia" placeholder="Existencia a quitar" min="1" max="9999999999" required/> </li>
+                    <li><input type="number" name="existencia" placeholder="Existencia a quitar" min="1" max="<%=session.getAttribute("existenciaMax")%>" required/> </li>
                     <li><input type="submit" value ="Desinventarear videojuego" />
                 </ul>
             </form>

@@ -4,6 +4,10 @@
     Author     : R2
 --%>
 
+<%@page import="objetosNegocio.Videojuego"%>
+<%@page import="java.util.List"%>
+<%@page import="persistencia.PersistenciaBD"%>
+<%@page import="interfaces.IPersistencia"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +33,7 @@
 
         <article>
             
-            <h1> ¡Ingresa la clave de tu videojuego al cual deseas consultar su inventario!</h1>
+            <h1> ¡Ingresa la clave de tu videojuego al cual deseas inventariar su inventario!</h1>
             <form action="obtenVideojuegoInventarear">
                 <ul>
                     <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo" min="1" max="9999999999" required/></li>
@@ -37,6 +41,36 @@
                 </ul>
             </form>
 
+            <%
+                IPersistencia crud = new PersistenciaBD();
+
+                List lista = crud.consultarVideojuegos();
+
+                Videojuego v;
+                out.println("<table border=1>");
+
+                out.println("<tr>"
+                            + "<td>" + "Núm.Catalago"+ "</td>"
+                            + "<td>" + "Título" + "</td>"
+                            + "<td>" + "Genero" + "</td>"
+                            + "<td>" + "Consola" + "</td>"
+                            + "<td>" + "Fabricante" + "</td>"
+                            + "<td>" + "Version" + "</td>" + "</tr>");
+                
+                for (int i = 0; i < lista.size(); i++) {
+
+                    v = (Videojuego) lista.get(i);
+
+                    out.println("<tr>"
+                            + "<td>" + v.getNumCatalogo() + "</td>"
+                            + "<td>" + v.getTitulo() + "</td>"
+                            + "<td>" + v.getGenero() + "</td>"
+                            + "<td>" + v.getConsola() + "</td>"
+                            + "<td>" + v.getFabricante() + "</td>"
+                            + "<td>" + v.getVersion() + "</td>" + "</tr>");
+
+                }%>
+            
         </article>
     </body>
 </html>
