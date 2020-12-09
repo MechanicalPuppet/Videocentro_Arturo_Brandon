@@ -22,7 +22,7 @@
             
         </header>
          <nav>
-             <a href="Bienvenido_JSP.jsp"><button type="button"></button></a>
+             <button type="button" name="back" onclick="history.back()"></button>
             <ul>
                 
                 <li><a href="control?tarea=agregarVideojuego">¡Agregar videojuego!</a></li>
@@ -43,17 +43,17 @@
                     <label for="numCatalogo">No. Catalogo</label>
                     <li><input type="number" id="numCatalogo" name="numCatalogo" readonly="readonly" value="<%=session.getAttribute("numCatalogo")%>"/></li>
                     <label for="titulo"> Titulo</label>
-                    <li><input type="text" id="titulo" name="titulo" value="<%= session.getAttribute("titulo") %>" required/> </li>
+                    <li><input type="text" id="titulo" name="titulo" maxlength="35" value="<%= session.getAttribute("titulo") %>" required/> </li>
                     <label for="genero"> Genero</label>
-                    <li><input type="text" id="genero" name="genero" value="<%=session.getAttribute("genero") %>" required/> </li>
+                    <li><input type="text" id="genero" name="genero" maxlength="20" value="<%=session.getAttribute("genero") %>" required/> </li>
                     <label for="clasif"> Clasificación</label>
-                    <li><input type="text" id="clasif" name="clasificacion" value="<%=session.getAttribute("clasificacion") %>" required/> </li>
+                    <li><input type="text" id="clasif" name="clasificacion" maxlength="20" value="<%=session.getAttribute("clasificacion") %>" required/> </li>
                     <label for="consola"> Consola</label>
-                    <li><input type="text" id="consola" name="consola" value="<%=session.getAttribute("consola") %>" required/> </li>
+                    <li><input type="text" id="consola" name="consola" maxlength="20" value="<%=session.getAttribute("consola") %>" required/> </li>
                     <label for="fabricante"> Fabricante</label>
-                    <li><input type="text" id="fabricante" name="fabricante" value="<%=session.getAttribute("fabricante") %>" required/> </li>
+                    <li><input type="text" id="fabricante" name="fabricante" maxlength="35" value="<%=session.getAttribute("fabricante") %>" required/> </li>
                     <label for="version"> Versión</label>
-                    <li><input type="number" id="version" name="version" value="<%=session.getAttribute("version") %>" required/> </li>
+                    <li><input type="number" id="version" name="version" max ="999999999" value="<%=session.getAttribute("version") %>" required/> </li>
                     <li><input type="submit" value ="Editar videojuego" />
                 </ul>
                 </form>

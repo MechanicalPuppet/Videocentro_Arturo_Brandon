@@ -21,6 +21,7 @@
 
 
         <nav>
+            <button type="button" name="back" onclick="history.back()"></button>
             <ul>
 
                 <li><a href="control?tarea=inventarear">Inventarear</a></li>
@@ -40,7 +41,7 @@
                 for (ArticuloED elem : lista) {
                     if (elem.getArticulo().getNumCatalogo().equals(session.getAttribute("numCatalogo"))) {
                         
-                        session.setAttribute("existenciaMax", elem.getExistencia());
+                        session.setAttribute("existenciaMax", elem.getDisponibilidad());
                     }
                 }
             %>

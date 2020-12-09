@@ -59,16 +59,28 @@ public class obtenVideojuegoDesinventarear extends HttpServlet {
                 }
                 
             }
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Lo lamento</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1> El videojuego que has introducido no existe :( </h1>");
-            out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar</button></a>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Lo lamento</title>");
+                out.println("</head>");
+                out.println("<header>¡Oh no!</header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<body>");
+                out.println("<article>");
+                out.println("<h1>El articulo que has introducido no existe :c<h1>");
+                out.println("</article>");
+                out.println("<footer> <h5>Todos los derechos reservados.</h5>\n"
+                        + "            <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp"
+                        + "-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-"
+                        + "Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya"
+                        + "-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos d"
+                        + "eben ver.</a></h6> </footer>");
+                out.println("</body>");
+                out.println("</html>");
         }
     }
 

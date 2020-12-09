@@ -42,48 +42,75 @@ public class consultarClientes extends HttpServlet {
 
             List lista = crud.consultarClientes();
 
-            Cliente c;
+            if (!lista.isEmpty()) {
+                Cliente c;
 
-            out.println("<!DOCTYPE html>"
-                    + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Consulta todos los clientes</title>");
-            out.println("</head>");
-            out.println("<header>Consulta todos los clientes </header>");
-            out.println("<nav>");
-            out.println("<a href=\"Bienvenido_JSP.jsp\"><button type=\"button\"></button></a>");
-            out.println("</nav>");
-            out.println("<body>");
-            out.println("<article>");
-            out.println("<table border=1>");
+                out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Consulta todos los clientes</title>");
+                out.println("</head>");
+                out.println("<header>Consulta todos los clientes </header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<body>");
+                out.println("<article>");
+                out.println("<table border=1>");
 
-            out.println("<tr> <th> Num. Credencial </th>"
-                    + "<th> Nombre </th>"
-                    + "<th> Direccion </th>"
-                    + "<th> Telefono </th> </tr>");
-            for (int i = 0; i < lista.size(); i++) {
+                out.println("<tr> <th> Num. Credencial </th>"
+                        + "<th> Nombre </th>"
+                        + "<th> Direccion </th>"
+                        + "<th> Telefono </th> </tr>");
+                for (int i = 0; i < lista.size(); i++) {
 
-                c = (Cliente) lista.get(i);
+                    c = (Cliente) lista.get(i);
 
-                out.println("<tr>"
-                        + "<td>" + c.getNumCredencial() + "</td>"
-                        + "<td>" + c.getNombre()+ "</td>"
-                        + "<td>" + c.getDireccion()+ "</td>"
-                        + "<td>" + c.getTelefono()+ "</td>" + "</tr>");
+                    out.println("<tr>"
+                            + "<td>" + c.getNumCredencial() + "</td>"
+                            + "<td>" + c.getNombre() + "</td>"
+                            + "<td>" + c.getDireccion() + "</td>"
+                            + "<td>" + c.getTelefono() + "</td>" + "</tr>");
 
+                }
+
+                out.println("</table>");
+                out.println("</article>");
+                out.println("<footer> <h5>Todos los derechos reservados.</h5>\n"
+                        + "            <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp"
+                        + "-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-"
+                        + "Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya"
+                        + "-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos d"
+                        + "eben ver.</a></h6> </footer>");
+                out.println("</body>");
+                out.println("</html>");
+            } else {
+                
+                out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Consulta todos los videojuegos</title>");
+                out.println("</head>");
+                out.println("<header>Consulta todos los videojuegos </header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<body>");
+                out.println("<article>");
+                out.println("<h1>No se encontro ningun cliente<h1>");
+                out.println("</article>");
+                out.println("<footer> <h5>Todos los derechos reservados.</h5>\n"
+                        + "            <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp"
+                        + "-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-"
+                        + "Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya"
+                        + "-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos d"
+                        + "eben ver.</a></h6> </footer>");
+                out.println("</body>");
+                out.println("</html>");
             }
-            
-            out.println("</table>");
-            out.println("</article>");
-            out.println("<footer> <h5>Todos los derechos reservados.</h5>\n" +
-"            <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp"
-                    + "-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-"
-                    + "Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya"
-                    + "-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos d"
-                    + "eben ver.</a></h6> </footer>");
-            out.println("</body>");
-            out.println("</html>");
+
         }
     }
 

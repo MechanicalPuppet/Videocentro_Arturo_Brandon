@@ -25,6 +25,7 @@
         </header>
         
         <nav>
+            <button type="button" name="back" onclick="history.back()"></button>
             <ul>
                 
                 <li><a href="control?tarea=agregarVideojuego">¡Agregar videojuego!</a></li>

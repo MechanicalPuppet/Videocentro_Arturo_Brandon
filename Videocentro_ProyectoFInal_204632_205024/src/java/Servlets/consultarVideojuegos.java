@@ -42,33 +42,32 @@ public class consultarVideojuegos extends HttpServlet {
 
             List lista = crud.consultarVideojuegos();
 
-            Videojuego v;
-            
-            
-           
-            
-            out.println("<!DOCTYPE html>");
-            out.println("<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
-            out.println("<html>");
-            
-            out.println("<head>");
-            out.println("<title>Consulta todos los videojuegos</title>");
-            out.println("</head>");
-            
-            out.println("<header>");
-            out.println("CONSULTAR VIDEOJUEGOS");
-            out.println("</header>");
-            
-            out.println("<nav>");
-            out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\"></button>");
- 
-            out.println("</nav>");
-            
-            out.println("<body>");
-            
-            out.println("<article>");
-            out.println("<table border=1>");
-            out.println("<tr>"
+            if (!lista.isEmpty()) {
+
+                Videojuego v;
+
+                out.println("<!DOCTYPE html>");
+                out.println("<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+
+                out.println("<head>");
+                out.println("<title>Consulta todos los videojuegos</title>");
+                out.println("</head>");
+
+                out.println("<header>");
+                out.println("CONSULTAR VIDEOJUEGOS");
+                out.println("</header>");
+
+                out.println("<nav>");
+                out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\"></button>");
+
+                out.println("</nav>");
+
+                out.println("<body>");
+
+                out.println("<article>");
+                out.println("<table border=1>");
+                out.println("<tr>"
                         + "<th> No. Catalogo </th>"
                         + "<th> Titulo </th>"
                         + "<th> Genero </th>"
@@ -76,38 +75,56 @@ public class consultarVideojuegos extends HttpServlet {
                         + "<th> Fabricante </th>"
                         + "<th> Version </th>"
                         + "</tr>");
-            for (int i = 0; i < lista.size(); i++) {
+                for (int i = 0; i < lista.size(); i++) {
 
-                v = (Videojuego) lista.get(i);
+                    v = (Videojuego) lista.get(i);
 
-                
-                out.println("<tr>"
-                        + "<td>" + v.getNumCatalogo() + "</td>"
-                        + "<td>" + v.getTitulo() + "</td>"
-                        + "<td>" + v.getGenero() + "</td>"
-                        + "<td>" + v.getConsola() + "</td>"
-                        + "<td>" + v.getFabricante() + "</td>"
-                        + "<td>" + v.getVersion() + "</td>" + "</tr> ");
+                    out.println("<tr>"
+                            + "<td>" + v.getNumCatalogo() + "</td>"
+                            + "<td>" + v.getTitulo() + "</td>"
+                            + "<td>" + v.getGenero() + "</td>"
+                            + "<td>" + v.getConsola() + "</td>"
+                            + "<td>" + v.getFabricante() + "</td>"
+                            + "<td>" + v.getVersion() + "</td>" + "</tr> ");
 
-            } 
-            out.println("</table>");
-            
-            out.println("</article>");
-            
-            
+                }
+                out.println("</table>");
+
+                out.println("</article>");
+
 //           
-           
-            out.println("</body>");
-            
-            out.println("<footer>");
-            out.println("<h1> ¡Gracias por consultar nuestro proyecto!</h1>");
-            out.println("</footer>");
+                out.println("</body>");
 
-        
-            
-            
-            
-            out.println("</html>");
+                out.println("<footer>");
+                out.println("<h1> ¡Gracias por consultar nuestro proyecto!</h1>");
+                out.println("</footer>");
+
+                out.println("</html>");
+
+            } else {
+                out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Consulta todos los videojuegos</title>");
+                out.println("</head>");
+                out.println("<header>Consulta todos los videojuegos </header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<body>");
+                out.println("<article>");
+                out.println("<h1>No se encontro ningun videojuego<h1>");
+                out.println("</article>");
+                out.println("<footer> <h5>Todos los derechos reservados.</h5>\n"
+                        + "            <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp"
+                        + "-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-"
+                        + "Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya"
+                        + "-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos d"
+                        + "eben ver.</a></h6> </footer>");
+                out.println("</body>");
+                out.println("</html>");
+            }
         }
 
     }

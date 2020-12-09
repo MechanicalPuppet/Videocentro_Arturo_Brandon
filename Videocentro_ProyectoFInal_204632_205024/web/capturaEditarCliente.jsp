@@ -17,7 +17,7 @@
         
         
         <nav>
-            <a href="Bienvenido_JSP.jsp"><button type="button"></button></a>
+            <button type="button" name="back" onclick="history.back()"></button>
             <ul>
                 
                 <li><a href="control?tarea=agregarCliente">Agregar clientes</a></li>

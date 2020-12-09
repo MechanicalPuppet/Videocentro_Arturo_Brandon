@@ -43,22 +43,7 @@ public class rentar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Rentas</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<header>");
-            out.println("<h1>¡Rentas!");
-            out.println("</header>");
-            out.println("<nav>");
-            out.println(" <ul>");
-            out.println("<li><a href=\"control?tarea=rentar\">¡Rentar un videojuego!</a></li>");
-            out.println(" <li><a href=\"control?tarea=devolver\">¡Devolver un videojuego!</a></li>");
-            out.println("</ul>");
-            out.println("</nav>");
+
             IPersistencia crud = new PersistenciaBD();
             List<Cliente> listaClientes = crud.consultarClientes();
             List<ArticuloED> listaVideojuegos = crud.consultarVideojuegosDisponibles();
@@ -81,21 +66,58 @@ public class rentar extends HttpServlet {
             renta.setFechaRenta(fecha);
 
             renta.setTiempoRenta(Integer.parseInt(request.getParameter("tiempoRenta")));
-            crud.rentarVideojuego(renta);
-            
-            out.println("<article>");
-            out.println("<h1> ¡Rentado correctamente! </h1>");
-            out.println("</article>");
-            out.println("<footer> <h5>Todos los derechos reservados.</h5>\n" +
-"            <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp"
-                    + "-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-"
-                    + "Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya"
-                    + "-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos d"
-                    + "eben ver.</a></h6> </footer>");
-            
-            out.println("</body>");
 
-            out.println("</html>");  
+            try {
+                crud.rentarVideojuego(renta);
+                
+                out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Rentar</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<header>");
+                out.println("¡Lo lograste!");
+                out.println("</header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<article>");
+                out.println("<h1> ¡Genial! </h1>");
+                out.println("<h2> Renta finalizada con exito </h2>");
+                out.println("<img src='https://t2.ea.ltmcdn.com/es/images/1/3/2/como_hacer_feliz_a_tu_perro_24231_orig.jpg' height=300px width=500px>");
+                out.println("</article>");
+                out.println("<footer>");
+                out.println(" ¡Regresa para continuar operando!");
+                out.println("</footer>");
+                out.println("</body>");
+                out.println("</html>");
+                
+            } catch (Exception e) {
+                out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Rentar</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<header>");
+                out.println("¡OH NOOOO!");
+                out.println("</header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<article>");
+                out.println("<h1> Upss... </h1>");
+                out.println("<h2> Parece que ya rentaste este articulo </h2>");
+                out.println("</article>");
+                out.println("<footer>");
+                out.println(" ¡Regresa para continuar operando!");
+                out.println("</footer>");
+                out.println("</body>");
+                out.println("</html>");
+            }
         }
     }
 

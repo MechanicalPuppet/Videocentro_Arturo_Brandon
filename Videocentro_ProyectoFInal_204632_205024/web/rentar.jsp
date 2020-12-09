@@ -29,7 +29,7 @@
 
 
     <nav>
-         <a href="rentas.html"><button type="button"></button></a>
+        <a href="rentas.html"><button type="button"></button></a>
         <ul>
             <li><a href="control?tarea=rentar">¡Rentar un videojuego!</a></li>
             <li><a href="control?tarea=devolver">¡Devolver un videojuego!</a></li>
@@ -45,6 +45,12 @@
             List listaClientes = crud.consultarClientes();
 
             List<ArticuloED> listaArticulos = crud.consultarVideojuegosDisponibles();
+
+            boolean incompleta = false;
+
+            if (listaArticulos.isEmpty() || listaClientes.isEmpty()) {
+                incompleta = true;
+            }
 
             Articulo v;
 
@@ -88,6 +94,8 @@
 
             }
             out.println("</table>");
+            out.println("<h5>Si no encuentra el articulo que agrego probablemente deba inventarearlo antes de rentar</h5>");
+
         %>
 
 
@@ -96,17 +104,26 @@
                 <li><input type="number" name="numCredencial" placeholder="Num. Credencial cliente" style="width: 250px" required min="1" max="<%=crud.consultarClientes().size()%>"/></li>
                 <li><input type="number" name="numCatalogo" placeholder="Num. Catálogo artículo" style="width: 250px" required min="1" max="<%=crud.consultarVideojuegosDisponibles().size()%>"/></li>
                 <li><input type="number" name="tiempoRenta" placeholder="Número de días de la renta" style="width: 250px" required min="1" max="30"/></li>
-                <li><input type="submit" value="Realizar renta"> </li>
+
+                <%
+                    if (!incompleta) {
+                  %><li><input type="submit" value="Realizar renta"> </li><%
+                    }else{
+                  %><a href="Bienvenido_JSP.jsp"><button type="button"></button></a>
+                    <h5> La tabla de clientes y de articulos debe de tener por lo menos un elemento</h5<%
+                    }
+                %>
+                
             </ul> 
 
         </form>
     </article>
 
-                <footer>
-            
-            <h5>Todos los derechos reservados.</h5>
-            <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
-            
-            
-        </footer>
+    <footer>
+
+        <h5>Todos los derechos reservados.</h5>
+        <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
+
+
+    </footer>
 </html>

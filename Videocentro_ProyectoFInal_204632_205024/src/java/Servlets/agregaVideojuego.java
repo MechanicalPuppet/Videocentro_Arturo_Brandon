@@ -36,9 +36,9 @@ public class agregaVideojuego extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+
             IPersistencia crud = new PersistenciaBD();
-           
+
             String numCatalogo = request.getParameter("numCatalogo");
             String titulo = request.getParameter("titulo");
             String genero = request.getParameter("genero");
@@ -46,41 +46,39 @@ public class agregaVideojuego extends HttpServlet {
             String consola = request.getParameter("consola");
             String fabricante = request.getParameter("fabricante");
             Integer version = Integer.parseInt(request.getParameter("version"));
-            
+
             Videojuego juegoNuevo = new Videojuego(numCatalogo, titulo, genero, clasificacion, consola, fabricante, version);
-            
-            try{
+
+            try {
                 crud.agregar(juegoNuevo);
-                
-            out.println("<!DOCTYPE html>"
-                    + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Agregar Videojuego</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<header>");
-            out.println("¡Lo lograste!");
-            out.println("</header>");
-            out.println("<nav>");
-            out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
-            out.println("</nav>");
-            out.println("<article>");
-            out.println("<h1> ¡Genial! </h1>");
-            out.println("<h2> Videojuego agregado </h2>");
-            out.println("<img src='https://t2.ea.ltmcdn.com/es/images/1/3/2/como_hacer_feliz_a_tu_perro_24231_orig.jpg' height=300px width=500px>");
-            out.println("</article>");
-            out.println("<footer>");
-            out.println(" ¡Regresa para continuar operando!");
-            out.println("</footer>");
-            out.println("</body>");
-            out.println("</html>");
-            } catch(Exception e){
+
+                out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Agregar Videojuego</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<header>");
+                out.println("¡Lo lograste!");
+                out.println("</header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<article>");
+                out.println("<h1> ¡Genial! </h1>");
+                out.println("<h2> Videojuego agregado </h2>");
+                out.println("<img src='https://t2.ea.ltmcdn.com/es/images/1/3/2/como_hacer_feliz_a_tu_perro_24231_orig.jpg' height=300px width=500px>");
+                out.println("</article>");
+                out.println("<footer>");
+                out.println(" ¡Regresa para continuar operando!");
+                out.println("</footer>");
+                out.println("</body>");
+                out.println("</html>");
+            } catch (Exception e) {
                 response.sendRedirect("errorYaExiste.html");
-                System.out.println("No se pudo agregar el videojuego.");
             }
-            
-            
+
         }
     }
 

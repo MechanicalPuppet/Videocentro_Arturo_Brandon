@@ -21,6 +21,7 @@
 
 
         <nav>
+            <button type="button" name="back" onclick="history.back()"></button>
             <ul>
 
                 <li><a href="control?tarea=inventarear">Inventarear</a></li>

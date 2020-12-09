@@ -39,55 +39,52 @@ public class obtenVideojuegoEliminar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             IPersistencia crud = new PersistenciaBD();
-            
+
             List<Videojuego> lista = crud.consultarVideojuegos();
             Videojuego videojuego = new Videojuego(request.getParameter("numCatalogo"));
-            
-            
-     
-            
-            
+            Videojuego game = null;
+
             for (Videojuego juego : lista) {
-             
-                if(juego.getNumCatalogo().equalsIgnoreCase(videojuego.getNumCatalogo())){
-                   
-                        crud.eliminar(juego);
-                        
-                   response.sendRedirect("eliminado.html");
-                break;
-//                   RequestDispatcher rd = request.getRequestDispatcher("capturaEditarVideojuegoActualizar.jsp");
-//                   rd.forward(request, response);
-            
+
+                if (juego.getNumCatalogo().equalsIgnoreCase(videojuego.getNumCatalogo())) {
+
+                    game = juego;
+                    break;
                 }
-                
+
             }
-            
-            out.println("<!DOCTYPE html>"
-                    + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Lo lamento</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<header>");
-            out.println("¡Lo lamento!");
-            out.println("</header>");
-            out.println("<nav>");
-            out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
-            out.println("</nav>");
-            out.println("<article>");
-            out.println("<h1> Error </h1>");
-            out.println("<h2> El videojuego que has introducido no existe :( </h2>");
-            out.println("<img src='https://images.ctfassets.net/n44u7kn3xh7u/2oNeUrQWFauw6kkaWE6qG0/4c67fba90ff8235fab66d1a90d953381/perro-triste-p.jpg' height=200px width=300px>");
-            out.println("</article>");
-            out.println("<footer>");
-            out.println(" ¡Te recomiendo regresar a la página y reintentarlo!");
-            out.println("</footer>");
-            out.println("</body>");
-            out.println("</html>");
-            
+
+            try {
+                crud.eliminar(game);
+                response.sendRedirect("eliminado.html");
+            } catch (Exception e) {
+                out.println("<!DOCTYPE html>"
+                        + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Lo lamento</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<header>");
+                out.println("¡Lo lamento!");
+                out.println("</header>");
+                out.println("<nav>");
+                out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<article>");
+                out.println("<h1> Error </h1>");
+                out.println("<h2> El videojuego que has introducido no existe o tiene inventario :( </h2>");
+                out.println("<img src='https://images.ctfassets.net/n44u7kn3xh7u/2oNeUrQWFauw6kkaWE6qG0/4c67fba90ff8235fab66d1a90d953381/perro-triste-p.jpg' height=200px width=300px>");
+                out.println("</article>");
+                out.println("<footer>");
+                out.println(" ¡Te recomiendo regresar a la página y reintentarlo!");
+                out.println("</footer>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+
         }
     }
 
