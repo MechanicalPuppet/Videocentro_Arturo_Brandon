@@ -47,9 +47,12 @@ public class rentar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Consulta todos los clientes</title>");
+            out.println("<title>Rentas</title>");
             out.println("</head>");
             out.println("<body>");
+            out.println("<header>");
+            out.println("<h1>¡Rentas!");
+            out.println("</header>");
             out.println("<nav>");
             out.println(" <ul>");
             out.println("<li><a href=\"control?tarea=rentar\">¡Rentar un videojuego!</a></li>");
@@ -79,8 +82,17 @@ public class rentar extends HttpServlet {
 
             renta.setTiempoRenta(Integer.parseInt(request.getParameter("tiempoRenta")));
             crud.rentarVideojuego(renta);
-
+            
+            out.println("<article>");
             out.println("<h1> ¡Rentado correctamente! </h1>");
+            out.println("</article>");
+            out.println("<footer> <h5>Todos los derechos reservados.</h5>\n" +
+"            <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp"
+                    + "-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-"
+                    + "Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya"
+                    + "-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos d"
+                    + "eben ver.</a></h6> </footer>");
+            
             out.println("</body>");
 
             out.println("</html>");  

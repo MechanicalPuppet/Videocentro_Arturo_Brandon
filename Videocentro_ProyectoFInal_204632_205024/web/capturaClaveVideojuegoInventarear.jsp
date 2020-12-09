@@ -17,7 +17,7 @@
         <title>INVENTARIO</title>
     </head>
     <body>
-        <div>INVENTARIAR INVENTARIO</div>
+        <header>INVENTARIAR INVENTARIO</header>
 
 
         <nav>
@@ -69,8 +69,17 @@
                             + "<td>" + v.getFabricante() + "</td>"
                             + "<td>" + v.getVersion() + "</td>" + "</tr>");
 
-                }%>
+                }
+            
+                out.println("</table>");
+            %>
             
         </article>
+
+                <footer>
+                    <h5>Todos los derechos reservados.</h5>
+                    <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
+
+                </footer>
     </body>
 </html>

@@ -17,17 +17,16 @@
         <title>Devolver</title>
     </head>
     <body>
-        <nav>
-        <ul>
-        <li><a href="control?tarea=rentar">¡Rentar un videojuego!</a></li>
-        <li><a href="control?tarea=devolver">¡Devolver un videojuego!</a></li>
-        </ul>
+        <header><h1>¡Estás a punto de devolver algo!</h1></header>
+            <nav>
+                 <a href="Bienvenido_JSP.jsp"><button type="button"></button></a>
+                <ul>
+                <li><a href="control?tarea=rentar">¡Rentar un videojuego!</a></li>
+                <li><a href="control?tarea=devolver">¡Devolver un videojuego!</a></li>
+                </ul>
     
-    </nav>
-        <header>
-            <h1>¡Estás a punto de devolver algo!</h1>
-        </header>
-        
+        </nav>
+         <article>
         <%
              IPersistencia crud = new PersistenciaBD();
   
@@ -52,15 +51,24 @@
         
         %>
         
-        <form action="devolver">
+        
+        
+                   
+                       <form action="devolver">
                 <ul>
                     <li><input type="number" name="numRenta" placeholder="Num. Renta" style="width :200px" required min="1" max="<%=crud.consultarRentasVideojuegos().size() %>"/></li>
                     <li><input type="submit" value="Realizar renta"> </li>
                 </ul> 
                 
-            </form>
-        
-        
+            </form> 
+                        
+                    </article>
+                    
+                    <footer>
+                       <h5>Todos los derechos reservados.</h5>
+            <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6> 
+                        
+                    </footer>
         
         
     </body>

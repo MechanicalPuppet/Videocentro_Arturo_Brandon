@@ -52,16 +52,30 @@ public class desinventarear extends HttpServlet {
 
             try {
                 crud.desinventariar(juegoNuevo, existencia);
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Felicidades</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1> El videojuego se ha desinventareado correctamente </h1>");
-                out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar a inicio</button></a>");
-                out.println("</body>");
-                out.println("</html>");
+                out.println("<!DOCTYPE html>"
+                    + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Desinventarear</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<header>");
+            out.println("¡Lo lograste!");
+            out.println("</header>");
+            out.println("<nav>");
+            out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+            out.println("</nav>");
+            out.println("<article>");
+            out.println("<h1> ¡Genial! </h1>");
+            out.println("<h2> Se ha desinventareado correctamente </h2>");
+            out.println("<img src='https://t2.ea.ltmcdn.com/es/images/1/3/2/como_hacer_feliz_a_tu_perro_24231_orig.jpg' height=300px width=500px>");
+            out.println("</article>");
+            out.println("<footer>");
+            out.println(" <h5>Todos los derechos reservados.</h5>\n" +
+"                    <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos deben ver.</a></h6>");
+            out.println("</footer>");
+            out.println("</body>");
+            out.println("</html>");
             } catch (Exception e) {
                 response.sendRedirect("error.html");
             }

@@ -10,10 +10,19 @@
     <head>
         <link href="estilos/estilosIndex.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Edita tu videojuego</title>
     </head>
     <body>
+        
+      
+            <header>
+            <h2> Videocentro "Silent Games" </h2> <h3><em> José Brandon Hernández y Arturo Mendoza</em> </h3>
+            
+    
+            
+        </header>
          <nav>
+             <a href="Bienvenido_JSP.jsp"><button type="button"></button></a>
             <ul>
                 
                 <li><a href="control?tarea=agregarVideojuego">¡Agregar videojuego!</a></li>
@@ -31,17 +40,32 @@
             <form action="editarVideojuego">
                 <ul>
                     <!-- USO REQUEST O SESSION AQUÍ? POR QUÉ SIEMPPRE ES NULL?-->
-                    <li><input type="number" name="numCatalogo" readonly="readonly" value="<%=session.getAttribute("numCatalogo")%>"/></li>
-                    <li><input type="text" name="titulo" value="<%= session.getAttribute("titulo") %>" required/> </li>
-                    <li><input type="text" name="genero" value="<%=session.getAttribute("genero") %>" required/> </li>
-                    <li><input type="text" name="clasificacion" value="<%=session.getAttribute("clasificacion") %>" required/> </li>
-                    <li><input type="text" name="consola" value="<%=session.getAttribute("consola") %>" required/> </li>
-                    <li><input type="text" name="fabricante" value="<%=session.getAttribute("fabricante") %>" required/> </li>
-                    <li><input type="number" name="version" value="<%=session.getAttribute("version") %>" required/> </li>
+                    <label for="numCatalogo">No. Catalogo</label>
+                    <li><input type="number" id="numCatalogo" name="numCatalogo" readonly="readonly" value="<%=session.getAttribute("numCatalogo")%>"/></li>
+                    <label for="titulo"> Titulo</label>
+                    <li><input type="text" id="titulo" name="titulo" value="<%= session.getAttribute("titulo") %>" required/> </li>
+                    <label for="genero"> Genero</label>
+                    <li><input type="text" id="genero" name="genero" value="<%=session.getAttribute("genero") %>" required/> </li>
+                    <label for="clasif"> Clasificación</label>
+                    <li><input type="text" id="clasif" name="clasificacion" value="<%=session.getAttribute("clasificacion") %>" required/> </li>
+                    <label for="consola"> Consola</label>
+                    <li><input type="text" id="consola" name="consola" value="<%=session.getAttribute("consola") %>" required/> </li>
+                    <label for="fabricante"> Fabricante</label>
+                    <li><input type="text" id="fabricante" name="fabricante" value="<%=session.getAttribute("fabricante") %>" required/> </li>
+                    <label for="version"> Versión</label>
+                    <li><input type="number" id="version" name="version" value="<%=session.getAttribute("version") %>" required/> </li>
                     <li><input type="submit" value ="Editar videojuego" />
                 </ul>
                 </form>
             
         </article>
+                    
+                    <footer>
+            
+            <h5>Todos los derechos reservados.</h5>
+            <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
+            
+            
+        </footer>
     </body>
 </html>

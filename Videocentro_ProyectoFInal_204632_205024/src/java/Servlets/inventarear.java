@@ -53,18 +53,32 @@ public class inventarear extends HttpServlet {
 
             try {
                 crud.inventariar(juegoNuevo, existencia);
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Felicidades</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1> El videojuego se ha inventareado correctamente </h1>");
-                out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar a inicio</button></a>");
-                out.println("</body>");
-                out.println("</html>");
-            } catch (Exception e) {
+                out.println("<!DOCTYPE html>"
+                    + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Inventarear</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<header>");
+            out.println("¡Lo lograste!");
+            out.println("</header>");
+            out.println("<nav>");
+            out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+            out.println("</nav>");
+            out.println("<article>");
+            out.println("<h1> ¡Genial! </h1>");
+            out.println("<h2> Inventario agregado </h2>");
+            out.println("<img src='https://t2.ea.ltmcdn.com/es/images/1/3/2/como_hacer_feliz_a_tu_perro_24231_orig.jpg' height=300px width=500px>");
+            out.println("</article>");
+            out.println("<footer>");
+            out.println(" ¡Regresa para continuar operando!");
+            out.println("</footer>");
+            out.println("</body>");
+            out.println("</html>");
+            } catch(Exception e){
                 response.sendRedirect("error.html");
+                
             }
 
         }

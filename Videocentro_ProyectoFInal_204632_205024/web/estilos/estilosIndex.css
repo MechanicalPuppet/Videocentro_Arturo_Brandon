@@ -13,6 +13,15 @@ and open the template in the editor.
     font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
     
 }
+
+a{
+    color:aquamarine;
+}
+
+a:hover{
+    color:orangered;
+}
+
  
 header{
     background-color: #C7460A;
@@ -24,6 +33,7 @@ header{
     
 }
 
+
 nav{
     
     float: left;
@@ -32,10 +42,11 @@ nav{
     line-height : 40px;
     font-size: 17px;
     padding: 15px;
-    height: 400px;
+    height: 500px;
     color: white;
     font-family: Verdana, Geneva, sans-serif;
 }
+
 
 nav ul{
     list-style: none;
@@ -57,7 +68,7 @@ nav ul a:hover{
 article{
     float:right;
    width:79%;
-   height: 400px;
+   height: 500px;
    padding: 10px;
    background-color: #D1C9C5;
    
@@ -66,10 +77,18 @@ article{
 footer{
     background-color: #471904;
     color:white;
+    float: end;
     text-align: center;
     
 }
 
+input[type=number]{
+    width: 170px;
+}
+
+input [type=text]{
+    width: 160px;
+}
 input[type=submit],input[type=button]{
 
     

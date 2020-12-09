@@ -43,15 +43,33 @@ public class consultarVideojuegoTitulo extends HttpServlet {
         List lista = crud.consultarVideojuegos();
         
         Videojuego v;
-        
-        out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
+        out.println("<!DOCTYPE html>"
+                + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+        out.println("<header>");
+        out.println("<head>");
             out.println("<title>Consulta todos los videojuegos</title>");            
             out.println("</head>");
+            out.println("CONSULTAR VIDEOJUEGOS");
+            out.println("</header>");
+            
+            out.println("<nav>");
+            out.println("<a href=\"Bienvenido_JSP.jsp\"><button type=\"button\"></button></a>");
+ 
+            out.println("</nav>");
+            
             out.println("<body>");
-            out.println("</body>");
+            
+            out.println("<article>");
             out.println("<table border=1>");
+            out.println("<tr>"
+                        + "<th> No. Catalogo </th>"
+                        + "<th> Titulo </th>"
+                        + "<th> Genero </th>"
+                        + "<th> Consola </th>"
+                        + "<th> Fabricante </th>"
+                        + "<th> Version </th>"
+                        + "</tr>");
+        
             
             
             /* TODO output your page here. You may use following sample code. */
@@ -72,7 +90,11 @@ public class consultarVideojuegoTitulo extends HttpServlet {
            }
             
         }
-             out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
+            out.println("</table>");
+            out.println("</article>");
+            out.println("<footer>");
+            out.println(" ¡Regresa para continuar operando!");
+            out.println("</footer>");
             out.println("</html>");
         }
     }

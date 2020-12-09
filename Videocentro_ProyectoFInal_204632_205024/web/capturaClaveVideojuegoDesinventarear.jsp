@@ -17,7 +17,7 @@
         <title>INVENTARIO</title>
     </head>
     <body>
-        <div>DESINVENTARIAR INVENTARIO</div>
+        <header><h1>DESINVENTARIAR INVENTARIO</h1></header>
 
 
         <nav>
@@ -49,12 +49,12 @@
                 out.println("<table border=1>");
 
                 out.println("<tr>"
-                            + "<td>" + "Núm.Catalago"+ "</td>"
-                            + "<td>" + "Título" + "</td>"
-                            + "<td>" + "Genero" + "</td>"
-                            + "<td>" + "Consola" + "</td>"
-                            + "<td>" + "Fabricante" + "</td>"
-                            + "<td>" + "Version" + "</td>" + "</tr>");
+                            + "<th>" + "Núm.Catalago"+ "</th>"
+                            + "<th>" + "Título" + "</th>"
+                            + "<th>" + "Genero" + "</th>"
+                            + "<th>" + "Consola" + "</th>"
+                            + "<th>" + "Fabricante" + "</th>"
+                            + "<th>" + "Version" + "</th>" + "</tr>");
                 
                 for (int i = 0; i < lista.size(); i++) {
 
@@ -68,8 +68,18 @@
                             + "<td>" + v.getFabricante() + "</td>"
                             + "<td>" + v.getVersion() + "</td>" + "</tr>");
 
-                }%>
+                }
+            out.println("</table>");
+            %>
 
         </article>
+
+                <footer>
+
+                    <h5>Todos los derechos reservados.</h5>
+                    <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
+
+
+                </footer>
     </body>
 </html>

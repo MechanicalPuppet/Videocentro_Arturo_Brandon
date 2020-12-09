@@ -48,28 +48,65 @@ public class consultarVideojuegos extends HttpServlet {
            
             
             out.println("<!DOCTYPE html>");
+            out.println("<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
             out.println("<html>");
+            
             out.println("<head>");
             out.println("<title>Consulta todos los videojuegos</title>");
             out.println("</head>");
-            out.println("<body>"); 
-            out.println("</body>");
+            
+            out.println("<header>");
+            out.println("CONSULTAR VIDEOJUEGOS");
+            out.println("</header>");
+            
+            out.println("<nav>");
+            out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\"></button>");
+ 
+            out.println("</nav>");
+            
+            out.println("<body>");
+            
+            out.println("<article>");
             out.println("<table border=1>");
-
+            out.println("<tr>"
+                        + "<th> No. Catalogo </th>"
+                        + "<th> Titulo </th>"
+                        + "<th> Genero </th>"
+                        + "<th> Consola </th>"
+                        + "<th> Fabricante </th>"
+                        + "<th> Version </th>"
+                        + "</tr>");
             for (int i = 0; i < lista.size(); i++) {
 
                 v = (Videojuego) lista.get(i);
 
+                
                 out.println("<tr>"
                         + "<td>" + v.getNumCatalogo() + "</td>"
                         + "<td>" + v.getTitulo() + "</td>"
                         + "<td>" + v.getGenero() + "</td>"
                         + "<td>" + v.getConsola() + "</td>"
                         + "<td>" + v.getFabricante() + "</td>"
-                        + "<td>" + v.getVersion() + "</td>" + "</tr>");
+                        + "<td>" + v.getVersion() + "</td>" + "</tr> ");
 
-            }
-            out.println("<button type=\"button\" name=\"back\" onclick=\"history.back()\">¡Regresar!</button>");
+            } 
+            out.println("</table>");
+            
+            out.println("</article>");
+            
+            
+//           
+           
+            out.println("</body>");
+            
+            out.println("<footer>");
+            out.println("<h1> ¡Gracias por consultar nuestro proyecto!</h1>");
+            out.println("</footer>");
+
+        
+            
+            
+            
             out.println("</html>");
         }
 

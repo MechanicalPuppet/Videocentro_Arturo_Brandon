@@ -64,17 +64,29 @@ public class obtenVideojuegoEliminar extends HttpServlet {
                 
             }
             
-            out.println("<!DOCTYPE html>");
+            out.println("<!DOCTYPE html>"
+                    + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Lo lamento</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> El videojuego que has introducido no existe :( </h1>");
-            out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar</button></a>");
+            out.println("<header>");
+            out.println("¡Lo lamento!");
+            out.println("</header>");
+            out.println("<nav>");
+            out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+            out.println("</nav>");
+            out.println("<article>");
+            out.println("<h1> Error </h1>");
+            out.println("<h2> El videojuego que has introducido no existe :( </h2>");
+            out.println("<img src='https://images.ctfassets.net/n44u7kn3xh7u/2oNeUrQWFauw6kkaWE6qG0/4c67fba90ff8235fab66d1a90d953381/perro-triste-p.jpg' height=200px width=300px>");
+            out.println("</article>");
+            out.println("<footer>");
+            out.println(" ¡Te recomiendo regresar a la página y reintentarlo!");
+            out.println("</footer>");
             out.println("</body>");
             out.println("</html>");
-            
             
         }
     }

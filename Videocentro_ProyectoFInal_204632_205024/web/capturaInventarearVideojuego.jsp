@@ -13,7 +13,7 @@
         <title>INVENTARIO</title>
     </head>
     <body>
-        <div>INVENTARIAR INVENTARIO</div>
+        <header><h1>INVENTARIAR INVENTARIO</h1></header>
 
 
         <nav>
@@ -32,18 +32,35 @@
             <h1> ¡Ingresa la cantidad de existencia del videojuego!</h1>
             <form action="inventarear">
                 <ul>
-                    <li><input type="number" name="numCatalogo" readonly="readonly" value="<%=session.getAttribute("numCatalogo")%>"/></li>
-                    <li><input type="text" name="titulo" readonly="readonly" value="<%= session.getAttribute("titulo") %>"/> </li>
-                    <li><input type="text" name="genero" readonly="readonly" value="<%=session.getAttribute("genero") %>"/> </li>
-                    <li><input type="text" name="clasificacion" readonly="readonly" value="<%=session.getAttribute("clasificacion") %>"/> </li>
-                    <li><input type="text" name="consola" readonly="readonly" value="<%=session.getAttribute("consola") %>"/> </li>
-                    <li><input type="text" name="fabricante" readonly="readonly" value="<%=session.getAttribute("fabricante") %>"/> </li>
-                    <li><input type="number" name="version" readonly="readonly" value="<%=session.getAttribute("version") %>"/> </li>
-                    <li><input type="number" name="existencia" placeholder="Existencia" min="1" max="9999999999" required/> </li>
-                    <li><input type="submit" value ="Inventarear videojuego" />
+                    <label for="numCatalogo">No. Catalogo</label>
+                    <li><input type="number" id="numCatalogo" name="numCatalogo" readonly="readonly" value="<%=session.getAttribute("numCatalogo")%>"/></li>
+                    <label for="titulo"> Titulo</label>
+                    <li><input type="text" id="titulo" name="titulo" readonly="readonly" value="<%= session.getAttribute("titulo") %>"/> </li>
+                    <label for="genero"> Genero</label>
+                    <li><input type="text" id="genero" name="genero" readonly="readonly" value="<%=session.getAttribute("genero") %>"/> </li>
+                    <label for="clasif"> Clasificación</label>
+                    <li><input type="text" id="clasif" name="clasificacion" readonly="readonly" value="<%=session.getAttribute("clasificacion") %>"/> </li>
+                    <label for="consola"> Consola</label>
+                    <li><input type="text" id="consola" name="consola" readonly="readonly" value="<%=session.getAttribute("consola") %>"/> </li>
+                    <label for="fabricante"> Fabricante</label>
+                    <li><input type="text" id="fabricante" name="fabricante" readonly="readonly" value="<%=session.getAttribute("fabricante") %>"/> </li>
+                    <label for="version"> Versión</label>
+                    <li><input type="number" id="version" name="version" readonly="readonly" value="<%=session.getAttribute("version") %>"/> </li>
+                    <label for="existencia"> Existencia </label>
+                    <li><input type="number" id="existencia" name="existencia" placeholder="Existencia" min="1" max="9999999999" required/> </li>
+                    <br>
+                    <input type="submit" value ="Inventarear videojuego" />
                 </ul>
             </form>
 
         </article>
+
+        <footer>
+
+            <h5>Todos los derechos reservados.</h5>
+            <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
+
+
+        </footer>
     </body>
 </html>

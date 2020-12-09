@@ -18,9 +18,10 @@
     </head>
     <body>
 
-        <div>EDITAR CLIENTES</div>
+        <header>EDITAR CLIENTES</header>
 
         <nav>
+            <a href="Bienvenido_JSP.jsp"><button type="button"></button></a>
             <ul>
 
                 <li><a href="control?tarea=agregarCliente">Agregar clientes</a></li>
@@ -34,7 +35,13 @@
 
         <article>
             <h1> ¡Ingresa la clave del cliente a editar!</h1>
-            
+            <form action="obtenClienteActualizar">
+
+                <ul>
+                    <li><input type="number" name="numCredencial" placeholder="Num. Credencial" min="1" max="9999999999" required/></li>
+                    <li><input type="submit" value ="Capturar id" />
+                </ul>
+            </form>
             <%
                 IPersistencia crud = new PersistenciaBD();
 
@@ -55,21 +62,22 @@
                     out.println("<tr>"
                             + "<td>" + c.getNumCredencial() + "</td>"
                             + "<td>" + c.getNombre() + "</td>"
-                            + "<td>" + c.getDireccion() + "</td>"
-                            + "<td>" + c.getTelefono() + "</td>" + "</tr>");
++ "<td>" + c.getDireccion() + "</td>"
+        + "<td>" + c.getTelefono() + "</td>" + "</tr>");
 
-                }
+}
+                out.println("</table>");
             %>
             
-            <form action="obtenClienteActualizar">
-
-                <ul>
-                    <li><input type="number" name="numCredencial" placeholder="Num. Credencial" min="1" max="9999999999" required/></li>
-                    <li><input type="submit" value ="Capturar id" />
-                </ul>
-            </form>
+            
 
         </article>
 
+            <footer>
+                
+                <h5>Todos los derechos reservados.</h5>
+            <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
+            
+            </footer>
     </body>
 </html>

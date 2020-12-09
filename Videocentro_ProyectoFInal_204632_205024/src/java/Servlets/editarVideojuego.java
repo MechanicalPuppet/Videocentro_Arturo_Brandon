@@ -50,14 +50,27 @@ public class editarVideojuego extends HttpServlet {
             
             crud.actualizar(videojuego);
             
-            out.println("<!DOCTYPE html>");
+            out.println("<!DOCTYPE html>"
+                    + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet editarVideojuego</title>");            
+            out.println("<title>Editar Videojuego</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> ¡¡Videojuego actualizado!! </h1>");
-            out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar</button></a>");
+            out.println("<header>");
+            out.println("¡Lo lograste!");
+            out.println("</header>");
+            out.println("<nav>");
+            out.println("<a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+            out.println("</nav>");
+            out.println("<article>");
+            out.println("<h1> ¡Genial! </h1>");
+            out.println("<h2> Videojuego actualizado </h2>");
+            out.println("<img src='https://ar.zoetis.com/_locale-assets/mcm-portal-assets/publishingimages/especie/caninos_perro_img.png'>");
+            out.println("</article>");
+            out.println("<footer>");
+            out.println(" ¡Regresa para continuar operando!");
+            out.println("</footer>");
             out.println("</body>");
             out.println("</html>");
         }

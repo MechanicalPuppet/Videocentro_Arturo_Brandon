@@ -56,21 +56,36 @@ public class obtenVideojuegoConsultarInventario extends HttpServlet {
 
             if (juego != null) {
 
-                out.println("<!DOCTYPE html>");
+                out.println("<!DOCTYPE html> <link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<title>Consulta de inventario</title>");
                 out.println("</head>");
+                out.println("<header> <h1> Consultar Inventario </h1> </header>");
                 out.println("<body>");
-                out.println("</body>");
+                 out.println("<nav>");
+                out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\"></button></a>");
+                out.println("</nav>");
+                out.println("<article>");
+                out.println("<table border='1'");
+                out.println("<tr> <th> Num. Catalogo </th>"
+                        + "<th> Titulo </th>"
+                        + "<th> Existencia </th>"
+                        + "<th> Disponibilidad </th>");
+                out.println("<tr> <td>" +juego.getArticulo().getNumCatalogo()+ "</td>"
+                        + "<td>" +juego.getArticulo().getTitulo() + "</td>"
+                        + "<td>" +juego.getExistencia() +"</td>"
+                        + "<td>"+ juego.getDisponibilidad() +"</td> </tr>"  );
 
-                out.println("<ul>"
-                        + "<li>" + "Num.Catálago: " + juego.getArticulo().getNumCatalogo() + "</li>"
-                        + "<li>" + "Título: " + juego.getArticulo().getTitulo() + "</li>"
-                        + "<li>" + "Existencia: " + juego.getExistencia() + "</li>"
-                        + "<li>" + "Disponibilidad: " + juego.getDisponibilidad() + "</li>" + "</ul>");
+                out.println("</table>");
                 
-                out.print("<br><a href=\"Bienvenido_JSP.jsp#\"><button type=\"button\">Regresar a inicio</button></a>");
+                
+                out.println("</article>");
+               
+                out.println("</body>");
+                out.println("<footer><h5>Todos los derechos reservados.</h5>\n" +
+"                    <h6>Podría interesarte: <a href=\"https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg\">Contenido vital que todos deben ver.</a></h6>");
+                out.println("</footer>");
             } else {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");

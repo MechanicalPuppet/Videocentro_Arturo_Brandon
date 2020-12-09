@@ -13,10 +13,11 @@
         <title>CLIENTES</title>
     </head>
     <body>
-        <div>EDITAR CLIENTES</div>
+        <header>EDITAR CLIENTES</header>
         
         
         <nav>
+            <a href="Bienvenido_JSP.jsp"><button type="button"></button></a>
             <ul>
                 
                 <li><a href="control?tarea=agregarCliente">Agregar clientes</a></li>
@@ -32,16 +33,26 @@
             <h1> ¡Edita al cliente!</h1>
             <form action="editarCliente">
                 <ul>
-                    
-                    <li><input type="number" name="numCredencial" readonly value="<%=session.getAttribute("numCredencial")%>"/></li>
-                    <li><input type="text" name="nombre" pattern="[a-zA-Z ]{3,35}" maxlength="35" required value="<%= session.getAttribute("nombre") %>"/> </li>
-                    <li><input type="text" name="direccion" maxlength="35" required value="<%=session.getAttribute("direccion") %>"/> </li>
-                    <li><input type="text" name="telefono" maxlength="15" pattern="^[0-9]+" value="<%=session.getAttribute("telefono") %>"/> </li>
-                    
+
+                    <label for="uno">Num Credencial</label>
+                    <li><input type="number" id="uno"name="numCredencial" readonly value="<%=session.getAttribute("numCredencial")%>"/></li>
+                    <label for="dos">Nombre</label>
+                    <li><input type="text" id="dos" name="nombre" pattern="[a-zA-Z ]{3,35}" maxlength="35" required value="<%= session.getAttribute("nombre")%>"/> </li>
+                    <label for="tres">Dirección</label>
+                    <li><input type="text" id="tres" name="direccion" maxlength="35" required value="<%=session.getAttribute("direccion")%>"/> </li>
+                    <label for="cuatro">Telefono</label>
+                    <li><input type="text" id="cuatro" name="telefono" maxlength="15" pattern="^[0-9]+" value="<%=session.getAttribute("telefono")%>"/> </li>
+
                     <li><input type="submit" value ="Editar cliente" />
                 </ul>
-                </form>
-            
+            </form>
+
         </article>
+
+        <footer>
+            <h5>Todos los derechos reservados.</h5>
+            <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
+
+        </footer>
     </body>
 </html>

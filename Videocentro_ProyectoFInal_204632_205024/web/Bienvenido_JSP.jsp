@@ -43,12 +43,14 @@
             <h3>¡No te vas a perder!</h3>
             <h3><----</h3>
             <h4>(Creo)</h4>
+            <img src="https://media2.giphy.com/media/xUA7aO0PLIyJffDln2/giphy.gif" width="150px">
         </article>
         
         
         <footer>
+           <h5>Todos los derechos reservados.</h5>
+            <h6>Podría interesarte: <a href="https://ideasnuevas.net/wp-content/uploads/2016/08/Wallpapersxl-Perritos-Bonitos-Seguro-Que-Estabas-Esperando-Otro-Fondo-De-Perros-Pues-Ya-No-Tienes-276709-1440x1080.jpg">Contenido vital que todos deben ver.</a></h6>
             
-            <h1> el patas </h1>
             
         </footer>
         
