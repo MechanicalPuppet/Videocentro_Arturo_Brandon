@@ -5,7 +5,9 @@
  */
 package Servlets;
 
-import interfaces.IPersistencia;
+
+import Entidades.Clientes;
+import Fachadas.PersistenciaBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,8 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
-import persistencia.PersistenciaBD;
+
 
 /**
  *
@@ -37,18 +38,20 @@ public class agregaCliente extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            IPersistencia crud = new PersistenciaBD();
+            PersistenciaBD crud = new PersistenciaBD();
             String numCredencial = request.getParameter("numCredencial");
             String nombre = request.getParameter("nombre");
             String direccion = request.getParameter("direccion");
             String telefono = request.getParameter("telefono")+"";
-            
-            Cliente cliente = new Cliente(numCredencial, nombre, direccion, telefono);
-            
+            String tarjeta = "asdasdsa";
+            Clientes cliente = new Clientes(numCredencial, nombre, direccion, telefono);
+            cliente.setNumeroTarjeta(tarjeta);
             try{
-                crud.agregar(cliente);
+                crud.registrarCliente(cliente);
                 response.sendRedirect("consultarClientes");
             }catch(Exception e){
+                System.out.println("AQUÍ ESTÁ EL ERROR AYUDA");
+                System.out.println(e.getMessage());
                 response.sendRedirect("errorYaExiste.html");
             }
         }

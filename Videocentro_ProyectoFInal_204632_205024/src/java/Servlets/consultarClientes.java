@@ -5,7 +5,9 @@
  */
 package Servlets;
 
-import interfaces.IPersistencia;
+
+import Entidades.Clientes;
+import Fachadas.PersistenciaBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,9 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
-import objetosNegocio.Videojuego;
-import persistencia.PersistenciaBD;
+
 
 /**
  *
@@ -38,12 +38,12 @@ public class consultarClientes extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            IPersistencia crud = new PersistenciaBD();
+            PersistenciaBD crud = new PersistenciaBD();
 
             List lista = crud.consultarClientes();
 
             if (!lista.isEmpty()) {
-                Cliente c;
+                Clientes c;
 
                 out.println("<!DOCTYPE html>"
                         + "<link href=\"estilos/estilosIndex.css\" rel=\"stylesheet\" type=\"text/css\"/>");
@@ -65,7 +65,7 @@ public class consultarClientes extends HttpServlet {
                         + "<th> Telefono </th> </tr>");
                 for (int i = 0; i < lista.size(); i++) {
 
-                    c = (Cliente) lista.get(i);
+                    c = (Clientes) lista.get(i);
 
                     out.println("<tr>"
                             + "<td>" + c.getNumCredencial() + "</td>"
